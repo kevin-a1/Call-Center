@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
 import { LoginCorreoComponent } from './components/login-correo/login-correo.component';
+import { CargarScriptsService } from './services/cargar-scripts.service';
+import { UsuarioService } from './services/usuario.service';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -19,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UsuarioService, CargarScriptsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

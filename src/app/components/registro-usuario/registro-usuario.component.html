@@ -12,28 +12,37 @@
 
                     <div class="field-wrap">
                         <label>Correo<span class="req">*</span></label>
-                        <input id="email" type="email" required readonly value="ejemplo@gmail.com" autocomplete="off" />
+                        <input [(ngModel)]="usuario.correo" name="correo" id="email" type="email" required readonly value="ejemplo@gmail.com" autocomplete="off" />
                     </div>
 
                     <div class="top-row">
                         <div class="field-wrap">
                             <label>Nombre<span class="req">*</span></label>
-                            <input type="text" required autocomplete="off" />
+                            <input [(ngModel)]="usuario.nombre" name="nombre" type="text" required autocomplete="off" />
                         </div>
 
                         <div class="field-wrap">
                             <label>Apellido<span class="req">*</span></label>
-                            <input type="text" required autocomplete="off" />
+                            <input [(ngModel)]="usuario.apellido" name="apellido" type="text" required autocomplete="off" />
                         </div>
                     </div>
 
                     <div class="field-wrap">
                         <label>Contraseña<span class="req">*</span></label>
+                        <input [(ngModel)]="usuario.password" name="password" type="password" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>Confirmar Contraseña<span class="req">*</span></label>
                         <input type="password" required autocomplete="off" />
                     </div>
 
                     <div class="c-btn">
-                        <button type="submit" class="button button-block">Registrarme</button>
+                        <button type="submit" (click)="registrar()" class="button button-block">Registrarme</button>
+                    </div>
+
+                    <div class="c-btn">
+                        <button (click)="back()" class="btn-back">Regresar</button>
                     </div>
 
                 </form>
@@ -43,9 +52,4 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="registro-usuario.component.js"></script>
-    <script>
-        $(function() {
-            $('#email').focus();
-        })
-    </script>
 </main>

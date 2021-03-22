@@ -31,3 +31,5 @@ $('.form').find('input, textarea').on('keyup blur focus show', function(e) {
     }
 
 });
+
+$('#email').focus();

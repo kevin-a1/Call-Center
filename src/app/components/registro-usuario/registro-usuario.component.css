@@ -5,6 +5,7 @@
 }
 
 body {
+    overflow: hidden;
     background: url('../../../assets/img/ista-atardecer.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -25,7 +26,7 @@ a:hover {
     background: rgba(19, 35, 47, 0.9);
     padding: 40px;
     max-width: 600px;
-    margin: 7% auto;
+    margin: 16px auto;
     border-radius: 4px;
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
@@ -165,7 +166,7 @@ textarea {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .1em;
-    background: #33c09a;
+    background: #18755d;
     color: #ffffff;
     transition: all 0.5s ease;
     -webkit-appearance: none;
@@ -173,7 +174,7 @@ textarea {
 
 .button:hover,
 .button:focus {
-    background: #044937;
+    background: #064937;
 }
 
 .button-block {
@@ -186,6 +187,9 @@ textarea {
     text-align: right;
 }
 
+
+/*My Styles*/
+
 main {
     margin: auto;
 }
@@ -193,6 +197,25 @@ main {
 .c-btn {
     margin: auto;
     text-align: center;
+}
+
+.btn-back {
+    margin-top: 30px;
+    width: 25%;
+    background: #8d2839;
+    color: #fff;
+    transition: all 0.5s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .1em;
+    border: 0;
+    -webkit-appearance: none;
+    padding: 5px;
+}
+
+.btn-back:hover,
+.btn-back:focus {
+    background: #5e0b18;
 }
 
 .center {
