@@ -19,6 +19,7 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.usuario.correo = 'ejemplo@gmail.com';
   }
 
   registrar() {
@@ -26,6 +27,7 @@ export class RegistroUsuarioComponent implements OnInit {
       this.usuarioService.createUser(this.usuario).subscribe(data => {
         if (data.transaccion == true) {
           console.log('Usuario registrado')
+          console.log(data.data)
         } else {
           console.log('Usuario no registrado')
         }
