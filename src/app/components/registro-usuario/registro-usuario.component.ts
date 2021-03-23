@@ -19,7 +19,6 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.usuario.correo = 'ejemplo@gmail.com';
   }
 
   registrar() {

@@ -20,4 +20,8 @@ export class UsuarioService {
     return this.http.post(`${this.BASE_URL}/usuario/crear`, usuario);
   }
 
+  listUser(): Observable<any>{
+    return this.http.get(`${this.BASE_URL}/usuario/lista`)
+  }
+
 }

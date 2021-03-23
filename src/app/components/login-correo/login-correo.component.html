@@ -1,1 +1,27 @@
-<p>login-correo works!</p>
+<main>
+    <link rel="stylesheet" href="login-correo.component.css">
+
+    <div class="form">
+
+        <div class="container">
+            <div id="signup">
+
+                <h1>INICIAR SESION</h1>
+
+                <form>
+
+                    <div class="field-wrap">
+                        <label>Correo<span class="req">*</span></label>
+                        <input [(ngModel)]="correo" name="correo" id="email"  type="text" required autocomplete="off" maxlength="50" />
+                    </div>
+                    <div class="c-btn">
+                        <button type="submit" (click)="verificar()" class="button button-block">Inicia Sesión</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="registro-usuario.component.js"></script>
+</main>
