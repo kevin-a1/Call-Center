@@ -23,7 +23,6 @@ export class LoginCorreoComponent implements OnInit {
   ngOnInit(): void {
     this.usuarioService.listUser().subscribe(
       data =>{
-        console.log(data);
         this.usuario = data.data;
       },err =>{console.log(err);
       }
