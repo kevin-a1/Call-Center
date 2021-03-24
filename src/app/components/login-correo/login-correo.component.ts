@@ -65,9 +65,5 @@ export class LoginCorreoComponent implements OnInit {
    }else if(v == false){
      alert('El correo ingresado no pertenece al Instituto Superior Tecnologico del Azuay')
    }
-
  }
-
-
-
 }
