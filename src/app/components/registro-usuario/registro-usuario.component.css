@@ -6,10 +6,6 @@
 
 body {
     overflow: hidden;
-    background: url('../../../assets/img/ista-atardecer.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 a {

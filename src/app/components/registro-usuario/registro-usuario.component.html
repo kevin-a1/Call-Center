@@ -1,6 +1,4 @@
 <main>
-    <link rel="stylesheet" href="registro-usuario.component.css">
-
     <div class="form">
 
         <div class="container">
@@ -12,7 +10,7 @@
 
                     <div class="field-wrap">
                         <label>Correo<span class="req">*</span></label>
-                        <input [(ngModel)]="usuario.correo" name="correo" id="email" type="email" required autocomplete="off" value="andresk2108o@gmail.com" maxlength="100" />
+                        <input [(ngModel)]="usuario.correo" name="correo" id="email" type="email" required autocomplete="off" maxlength="100" readonly />
                     </div>
 
                     <div class="top-row">
@@ -49,7 +47,4 @@
             </div>
         </div>
     </div>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="registro-usuario.component.js"></script>
 </main>
