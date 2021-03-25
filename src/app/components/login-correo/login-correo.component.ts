@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Usuario } from '../../models/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { CargarScriptsService } from '../../services/cargar-scripts.service';
@@ -21,12 +21,6 @@ export class LoginCorreoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.usuarioService.listUser().subscribe(
-      data =>{
-        this.usuario = data.data;
-      },err =>{console.log(err);
-      }
-    )
   }
 
   verycorreo(co:string){
@@ -44,23 +38,28 @@ export class LoginCorreoComponent implements OnInit {
     }
   }
 
+  redir(){
+
+  }
 
   ingresar(){
     let v = this.verycorreo(this.correo)
    if (v) {
-     let dato;
-     let very = false;
-     for (const i in this.usuario) {
-       dato = this.usuario[i]
-       if (dato.correo == this.correo) {
-         this.router.navigate(['/'])//Kelly aqui debes colocar la direccion de tu pestaña
-         very = true;
+     this.usuarioService.listUser(this.correo).subscribe(
+       data =>{
+         if (data.data.length == 0) {
+           localStorage.setItem('correo',this.correo)
+           this.router.navigate(['/registro-usuario'])
+         }else{
+           localStorage.setItem('correo',JSON.stringify(data.data))
+           console.log(data.data);
+
+           localStorage.setItem('scorreo', this.correo)
+
+         }
+       },err =>{console.log(err);
        }
-     }
-     if (!very) {
-       alert('Este usuario no se encuentra registrado')
-       this.router.navigate(['/registro-usuario'])
-     }
+     )
    }else if(v == false){
      alert('El correo ingresado no pertenece al Instituto Superior Tecnologico del Azuay')
    }
