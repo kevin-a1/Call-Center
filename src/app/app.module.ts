@@ -8,12 +8,14 @@ import { LoginCorreoComponent } from './components/login-correo/login-correo.com
 import { CargarScriptsService } from './services/cargar-scripts.service';
 import { UsuarioService } from './services/usuario.service';
 import { FormsModule } from '@angular/forms';
+import { RevisarCasoComponent } from './components/revisar-caso/revisar-caso.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroUsuarioComponent,
-    LoginCorreoComponent
+    LoginCorreoComponent,
+    RevisarCasoComponent
   ],
   imports: [
     BrowserModule,
