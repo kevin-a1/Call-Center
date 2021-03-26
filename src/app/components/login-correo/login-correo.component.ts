@@ -52,8 +52,6 @@ export class LoginCorreoComponent implements OnInit {
            this.router.navigate(['/registro-usuario'])
          }else{
            localStorage.setItem('correo',JSON.stringify(data.data))
-           console.log(data.data);
-
            localStorage.setItem('scorreo', this.correo)
 
          }
