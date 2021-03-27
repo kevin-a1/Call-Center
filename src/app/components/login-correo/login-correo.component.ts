@@ -53,7 +53,7 @@ export class LoginCorreoComponent implements OnInit {
          }else{
            localStorage.setItem('correo',JSON.stringify(data.data))
            localStorage.setItem('scorreo', this.correo)
-
+           this.router.navigate(['/login-password'])
          }
        },err =>{console.log(err);
        }

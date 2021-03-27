@@ -7,21 +7,25 @@ import { RegistroUsuarioComponent } from './components/registro-usuario/registro
 import { LoginCorreoComponent } from './components/login-correo/login-correo.component';
 import { CargarScriptsService } from './services/cargar-scripts.service';
 import { UsuarioService } from './services/usuario.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RevisarCasoComponent } from './components/revisar-caso/revisar-caso.component';
+import { LoginPasswordComponent } from './components/login-password/login-password.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroUsuarioComponent,
     LoginCorreoComponent,
-    RevisarCasoComponent
+    RevisarCasoComponent,
+    LoginPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [UsuarioService, CargarScriptsService],
   bootstrap: [AppComponent]
