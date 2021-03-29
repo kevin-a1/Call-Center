@@ -1,0 +1,63 @@
+<p>registro-admin works!</p>
+<main>
+    <div class="form">
+
+        <div class="container">
+            <div id="signup">
+
+                <h1>REGISTRO ADMINISTRADOR</h1>
+
+                <form>
+
+                    <div class="field-wrap">
+                        <label>Correo<span class="req">*</span></label>
+                        <input  name="correo" id="email" type="email" required autocomplete="off" maxlength="100" readonly />
+                    </div>
+
+                    <div class="top-row">
+                        <div class="field-wrap">
+                            <label>Nombre<span class="req">*</span></label>
+                            <input name="nombre" type="text" required autocomplete="off" maxlength="20" />
+                        </div>
+
+                        <div class="field-wrap">
+                            <label>Apellido<span class="req">*</span></label>
+                            <input  name="apellido" type="text" required autocomplete="off" maxlength="20" pattern="[A-Z]" />
+                        </div>
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>Nombre de Usuario<span class="req">*</span></label>
+                        <input  name="usuario" type="text" required autocomplete="off" maxlength="20" pattern="[A-Z]" />
+                    </div>
+                    
+                    <div class="field-wrap">
+                        <select name="rol" id="rol" maxlength="20">
+                            <option value="administrador">Administrador</option>
+                            <option value="soporte">Soporte</option>
+                        </select > 
+                    </div>   
+
+                    <div class="field-wrap">
+                        <label>Contraseña<span class="req">*</span></label>
+                        <input  name="password" type="password" required autocomplete="off" minlength="8" maxlength="30" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>Confirmar Contraseña<span class="req">*</span></label>
+                        <input type="password" required autocomplete="off" />
+                    </div>
+
+                    <div class="c-btn">
+                        <button type="submit" class="button button-block">Registrarme </button>
+                    </div>
+
+                    <div class="c-btn">
+                        <button class="btn-back">Regresar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

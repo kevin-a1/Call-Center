@@ -10,6 +10,8 @@ import { UsuarioService } from './services/usuario.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RevisarCasoComponent } from './components/revisar-caso/revisar-caso.component';
 import { LoginPasswordComponent } from './components/login-password/login-password.component';
+import { RegistroAdminComponent } from './components/registro-admin/registro-admin.component';
+import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { LoginPasswordComponent } from './components/login-password/login-passwo
     RegistroUsuarioComponent,
     LoginCorreoComponent,
     RevisarCasoComponent,
-    LoginPasswordComponent
+    LoginPasswordComponent,
+    RegistroAdminComponent,
+    LoginAdminComponent
   ],
   imports: [
     BrowserModule,
