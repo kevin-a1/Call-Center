@@ -217,3 +217,12 @@ main {
 .center {
     margin: auto;
 }
+
+.response {
+    display: block;
+    margin: auto;
+    text-align: center;
+    color: #e74b65;
+    padding-bottom: 15px;
+    font-size: 1.3rem;
+}

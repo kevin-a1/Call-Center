@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../models/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { CargarScriptsService } from '../../services/cargar-scripts.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,13 +14,15 @@ import { CargarScriptsService } from '../../services/cargar-scripts.service';
 export class RegistroUsuarioComponent implements OnInit {
 
   usuario: Usuario = new Usuario();
+  response_condicion: boolean = false
+  response_msg: string = "Todo bien"
 
-  constructor(private usuarioService: UsuarioService, cargarScriptsService: CargarScriptsService) {
+  constructor(private usuarioService: UsuarioService, private cargarScriptsService: CargarScriptsService, private router: Router) {
     cargarScriptsService.load_js("registro-usuario.component.js");
   }
 
   ngOnInit(): void {
-    
+    this.usuario.correo = localStorage.getItem('correo')
   }
 
   registrar() {
@@ -29,7 +32,8 @@ export class RegistroUsuarioComponent implements OnInit {
           console.log('Usuario registrado')
           console.log(data.data)
         } else {
-          console.log('Usuario no registrado')
+          this.response_condicion = true
+          this.response_msg = data.message
         }
       });
     } else {
@@ -38,7 +42,7 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
   back() {
-
+    this.router.navigate(['/login'])
   }
 
   validarUsuario(): boolean {

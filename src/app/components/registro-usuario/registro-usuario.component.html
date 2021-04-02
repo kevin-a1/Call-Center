@@ -35,6 +35,8 @@
                         <input type="password" required autocomplete="off" />
                     </div>
 
+                    <span class="response" *ngIf="response_condicion == true">{{ response_msg }}</span>
+
                     <div class="c-btn">
                         <button type="submit" (click)="registrar()" class="button button-block">Registrarme</button>
                     </div>
