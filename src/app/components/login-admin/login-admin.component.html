@@ -1,15 +1,15 @@
-<p>login-admin works!</p>
 <main>
     <div class="form">
       <div class="container">
         <div id="signup">
           <h1>INICIAR SESION</h1>
-          <form class="form-signin" >
+          <form class="form-signin" [formGroup]="adminsingGroup" (ngSubmit)="validarcorreo(adminsingGroup.value)">
             <div class="field-wrap">
-              <label>Contraseña<span class="req">*</span></label>
-              <input formControlName="password" type="password" required autocomplete="off" maxlength="60"/>
+              <label>Correo electronico<span class="req">*</span></label>
+              <input [(ngModel)]="administrador.correo" formControlName="correoadmin" type="correoadmin" required autocomplete="off" maxlength="60"/><br>
+              <br><label>Contraseña<span class="req">*</span></label>
+              <input [(ngModel)]="administrador.password" formControlName="passwordadmin" type="password"  maxlength="60"/>
             </div>
-  
             <div class="c-btn">
               <button class="button button-block" type="sumit">
                 Inicia Sesión
@@ -17,7 +17,7 @@
             </div>
   
             <div class="c-btn">
-              <button  class="btn-back">Regresar</button>
+              <button (click)="validarcorreo(adminsingGroup.value)" class="btn-back">Regresar</button>
             </div>
   
           </form>
