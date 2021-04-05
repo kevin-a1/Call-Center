@@ -28,13 +28,17 @@ export class RegistroUsuarioComponent implements OnInit {
   registrar() {
     if (this.validarUsuario) {
       this.usuarioService.createUser(this.usuario).subscribe(data => {
+
         if (data.transaccion == true) {
+          
           console.log('Usuario registrado')
           console.log(data.data)
+
         } else {
           this.response_condicion = true
           this.response_msg = data.message
         }
+
       });
     } else {
 

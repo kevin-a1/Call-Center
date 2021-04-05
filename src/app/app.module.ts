@@ -12,6 +12,7 @@ import { RevisarCasoComponent } from './components/revisar-caso/revisar-caso.com
 import { LoginPasswordComponent } from './components/login-password/login-password.component';
 import { RegistroAdminComponent } from './components/registro-admin/registro-admin.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { LoginAdminComponent } from './components/login-admin/login-admin.compon
     RevisarCasoComponent,
     LoginPasswordComponent,
     RegistroAdminComponent,
-    LoginAdminComponent
+    LoginAdminComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

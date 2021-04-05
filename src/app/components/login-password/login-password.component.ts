@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CargarScriptsService } from '../../services/cargar-scripts.service';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-login-password',
@@ -9,36 +11,49 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login-password.component.css']
 })
 export class LoginPasswordComponent implements OnInit {
+  
   signupForm: FormGroup;
   usuarioLogeado = 0;
-  correo= localStorage.getItem('scorreo');
+  correo: string;
   contrasena: string;
 
-  constructor(private service: UsuarioService, private builder: FormBuilder, private router: Router) {
+  response_condicion: boolean = false
+  response_msg: string = "Todo bien"
+
+  constructor(private service: UsuarioService, private builder: FormBuilder, private router: Router, private cargarScriptsService: CargarScriptsService, private app: AppComponent) {
+
+    cargarScriptsService.load_js("registro-usuario.component.js");
+
     this.signupForm = this.builder.group({
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
    }
 
   ngOnInit(): void {
+    this.correo = localStorage.getItem('scorreo');
   }
 
   iniciarSesion(values) {
+
     this.contrasena = this.signupForm.get('password').value;
-      this.service.login(this.correo, this.contrasena).subscribe(
-        data => {
-          if(data.transacción == true){
-            console.log('CORREO: '+this.correo);
-            console.log('Acceso Permitido');
-          }else{
-            console.log('Acceso Denegado1');
-            alert('La contraseña es incorrecta');
-          }
-          
-        }, error => {
+    this.service.login(this.correo, this.contrasena).subscribe( data => {
+
+        if(data.transacción == true){
+
+          this.app.showNavbar();
+          localStorage.setItem('type_user_logged_in', 'Usuario')
+
+          console.log('CORREO: '+this.correo);
+          console.log('Acceso Permitido');
+
+        }else{
+          this.response_condicion = true;
+          this.response_msg = 'Credenciales Incorrectas';
+        }
+      }, error => {
           console.log('Acceso Denegado');
-          }
-      );
+      }
+    );
   }
 
   back() {

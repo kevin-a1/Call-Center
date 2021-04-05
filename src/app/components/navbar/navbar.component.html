@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+
+<nav>
+    <div class="header"></div>
+
+    <div class="nav-center">
+
+        <!-- nav header -->
+        <div class="nav-header">
+            <img src="https://i.postimg.cc/76jNr6VY/1982637.jpg" class="logo" alt="logo" />
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+
+        <!-- links -->
+        <ul class="links">
+
+            <!-- Menu Usuario -->
+            <li *ngIf="type_user_logged_in == u">
+                <a href="#">Nuevo Caso</a>
+            </li>
+
+            <li *ngIf="type_user_logged_in == u ">
+                <a href="#">Mis Casos</a>
+            </li>
+
+            <!-- Menú Administrador -->
+            <li *ngIf="type_user_logged_in == a">
+                <a href="#">Mis Casos</a>
+            </li>
+
+            <!-- Menú Super Administrador -->
+            <li *ngIf="type_user_logged_in == sa">
+                <a href="#">Casos</a>
+            </li>
+
+            <li *ngIf="type_user_logged_in == sa">
+                <a href="#">Administradores <b>▼</b></a>
+            </li>
+
+            <li *ngIf="type_user_logged_in == sa">
+                <a href="#">Usuarios</a>
+            </li>
+
+            <li *ngIf="type_user_logged_in == sa">
+                <a href="#">Catalogos</a>
+            </li>
+
+            <!-- Menú todos -->
+            <li>
+                <a href="#">Nosotros</a>
+            </li>
+
+            <li>
+                <a href="#">Contactos</a>
+            </li>
+        </ul>
+
+        <!-- social media -->
+        <ul class="social-icons">
+            <li>
+                <a href="https://www.twitter.com">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.twitter.com">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.twitter.com">
+                    <i class="fab fa-behance"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.twitter.com">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.twitter.com">
+                    <i class="fab fa-sketch"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

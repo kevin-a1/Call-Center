@@ -13,6 +13,9 @@
                         <label>Correo<span class="req">*</span></label>
                         <input [(ngModel)]="correo" name="correo" id="email" type="text" required autocomplete="off" maxlength="50" />
                     </div>
+
+                    <span class="response" *ngIf="response_condicion == true">{{ response_msg }}</span>
+
                     <div class="c-btn">
                         <button type="submit" (click)="ingresar()" class="button button-block">Inicia Sesión</button>
                     </div>

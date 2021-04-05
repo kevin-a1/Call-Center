@@ -1,8 +1,16 @@
-<div class="container">
-    <h1 style="text-align: center;">Proyecto Tendencias Actuales de Programación</h1>
-</div>
+<header>
+    <div class="container-logo">
+        <img src="../assets/img/ista-header-logo.png" alt="">
+    </div>
+    <div>
+        <app-navbar *ngIf="logged_in"></app-navbar>
+    </div>
+</header>
+<main>
 
-<router-outlet></router-outlet>
-<section>
+    <!-- 
+        <app-login-correo></app-login-correo>
+    -->
+    <router-outlet></router-outlet>
 
-</section>
+</main>

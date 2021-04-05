@@ -16,6 +16,9 @@ export class LoginCorreoComponent implements OnInit {
   usuarios:Usuario = new Usuario();
   correo = "";
 
+  response_condicion: boolean = false
+  response_msg: string = "Todo bien"
+
   constructor(private usuarioService: UsuarioService, private cargarScriptsService: CargarScriptsService,  private router: Router, private correoService:CorreoService) {
     cargarScriptsService.load_js("registro-usuario.component.js");
   }
@@ -24,12 +27,23 @@ export class LoginCorreoComponent implements OnInit {
   }
 
   verycorreo(co:string){
-    if (!this.correoService.esEmailValido(co)) {
-      alert('El formato del correo ingresado es incorrecto');
+
+    if (co.length <= 0) {
+      this.response_condicion = true;
+      this.response_msg = 'Correo vacío';
+
+    } else if (!this.correoService.esEmailValido(co)) {
+
+      this.response_condicion = true;
+      this.response_msg = 'Formato del correo incorrecto';
+
       return null;
+
     }else{
+
       let dominio = "tecazuay.edu.ec";
       let corr = co.split('@');
+
       if (dominio == corr[1]) {
         return true;
       }else{
@@ -59,7 +73,8 @@ export class LoginCorreoComponent implements OnInit {
        }
      )
    }else if(v == false){
-     alert('El correo ingresado no pertenece al Instituto Superior Tecnologico del Azuay')
+    this.response_condicion = true;
+    this.response_msg = 'El correo ingresado no pertenece al Instituto Superior Tecnologico del Azuay';
    }
  }
 }

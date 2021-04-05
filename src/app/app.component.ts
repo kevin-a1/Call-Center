@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Call-Center';
+
+  logged_in: boolean = false;
+
+  showNavbar() {
+    this.logged_in = true;
+  }
 }
