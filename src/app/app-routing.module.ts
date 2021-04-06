@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'login', component: LoginCorreoComponent},
   { path: 'login-password', component: LoginPasswordComponent },
   { path: 'login-admin', component: LoginAdminComponent},
-  {path: 'ticket', component: RevisarCasoComponent}
+  {path: 'casos', component: RevisarCasoComponent}
 ];
 
 @NgModule({

@@ -1,1 +1,32 @@
-<p>revisar-caso works!</p>
+<main>
+    <div class="form">
+      <div class="container">
+        <div class="container">
+          <h1>Casos</h1>
+          <table>
+            <thead>
+              <th scope="col">Ticket Id</th>
+              <th scope="col">Asunto</th>
+              <th scope="col">Caso</th>
+              <th scope="col">Responsable</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Estado</th>
+            </thead>
+            <tbody>
+              <tr *ngFor = 'let datos of ticket'>
+                <td>{{datos.ticket_id}}</td>
+                <td>{{datos.asunto}}</td>
+                <td>{{datos.tipo_caso}}</td>
+                <td>{{datos.responsable}}</td>
+                <td>{{datos.fecha}}</td>
+                <td>{{datos.estado}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="c-btn">
+        <button (click)="back()" class="btn-back">Regresar</button>
+    </div>
+  </div>
+  </div>
+</main>

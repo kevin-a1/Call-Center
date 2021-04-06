@@ -1,0 +1,44 @@
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td{
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.form {
+    background: rgb(192,192,192);
+    padding: 40px;
+    max-width: 900px;
+    margin: 16px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.c-btn {
+    margin: auto;
+    text-align: center;
+}
+
+.btn-back {
+    margin-top: 30px;
+    width: 25%;
+    background: #8d2839;
+    color: #fff;
+    transition: all 0.5s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .1em;
+    border: 0;
+    -webkit-appearance: none;
+    padding: 5px;
+}
+
+.btn-back:hover,
+.btn-back:focus {
+    background: #5e0b18;
+}
+tr:hover {background-color:#FFFFFF;}

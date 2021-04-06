@@ -14,14 +14,17 @@ export class RevisarCasoComponent implements OnInit {
  ticket:Ticket[]=[];
 
   constructor(private ticketService: TicketService, private cargarScriptsService: CargarScriptsService,  private router: Router) { }
-
+ correo =  localStorage.getItem('scorreo');
   ngOnInit(): void {
-    this.ticketService.data().subscribe(
+    this.ticketService.data(this.correo).subscribe(
       data =>{
         console.log(data.data);
+        this.ticket = data.data;
       },err =>{console.log(err);
       }
     )
   }
-
+  back() {
+    this.router.navigate(['/login'])
+  }
 }

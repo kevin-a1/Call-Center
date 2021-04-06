@@ -12,7 +12,7 @@ export class TicketService {
   private URL = 'http://127.0.0.1:4000';
   constructor(private http:HttpClient) { }
 
-  data(): Observable<any>{
-    return this.http.get(`${this.URL}/ticket`)
+  data( correo: String): Observable<any>{
+    return this.http.get(`${this.URL}/ticket/`+ correo)
   }
 }
