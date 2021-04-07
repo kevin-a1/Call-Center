@@ -12,19 +12,24 @@ import { Router } from "@angular/router";
 export class RevisarCasoComponent implements OnInit {
 
  ticket:Ticket[]=[];
+ id: string;
 
   constructor(private ticketService: TicketService, private cargarScriptsService: CargarScriptsService,  private router: Router) { }
  correo =  localStorage.getItem('scorreo');
   ngOnInit(): void {
     this.ticketService.data(this.correo).subscribe(
       data =>{
-        console.log(data.data);
         this.ticket = data.data;
       },err =>{console.log(err);
       }
     )
   }
   back() {
+    this.router.navigate(['/login'])
+  }
+  ver( dat: string){
+    this.id = dat;
+    localStorage.setItem('IDTicket',this.id);
     this.router.navigate(['/login'])
   }
 }

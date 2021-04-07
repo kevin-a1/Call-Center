@@ -13,7 +13,7 @@
               <th scope="col">Estado</th>
             </thead>
             <tbody>
-              <tr *ngFor = 'let datos of ticket'>
+              <tr *ngFor = 'let datos of ticket' (click)='ver(datos.ticket_id)'>
                 <td>{{datos.ticket_id}}</td>
                 <td>{{datos.asunto}}</td>
                 <td>{{datos.tipo_caso}}</td>
