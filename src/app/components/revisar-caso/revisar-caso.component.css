@@ -42,3 +42,11 @@ th, td{
     background: #5e0b18;
 }
 tr:hover {background-color:#FFFFFF;}
+.response {
+    display: block;
+    margin: auto;
+    text-align: center;
+    color: #ffffff;
+    padding-bottom: 15px;
+    font-size: 1.3rem;
+}
