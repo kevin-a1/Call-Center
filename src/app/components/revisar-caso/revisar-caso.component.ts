@@ -13,6 +13,8 @@ export class RevisarCasoComponent implements OnInit {
 
  ticket:Ticket[]=[];
  id: string;
+ response_condicion: boolean = true
+ response_msg: string = "Exito"
 
   constructor(private ticketService: TicketService, private cargarScriptsService: CargarScriptsService,  private router: Router) { }
  correo =  localStorage.getItem('scorreo');
@@ -20,6 +22,10 @@ export class RevisarCasoComponent implements OnInit {
     this.ticketService.data(this.correo).subscribe(
       data =>{
         this.ticket = data.data;
+        if(this.ticket.length == 0){
+          this.response_condicion = false;
+          this.response_msg = "Usted no tiene ingresado ningun caso";
+        }
       },err =>{console.log(err);
       }
     )

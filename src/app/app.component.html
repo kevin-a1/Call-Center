@@ -1,16 +1,15 @@
 <header>
+
     <div class="container-logo">
-        <img src="../assets/img/ista-header-logo.png" alt="">
+        <img class="container-logo" src="../assets/img/ista-header-logo.png" alt="">
     </div>
     <div>
         <app-navbar *ngIf="logged_in"></app-navbar>
     </div>
+
 </header>
 <main>
 
-    <!-- 
-        <app-login-correo></app-login-correo>
-    -->
     <router-outlet></router-outlet>
 
 </main>

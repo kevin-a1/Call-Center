@@ -13,6 +13,7 @@ import { LoginPasswordComponent } from './components/login-password/login-passwo
 import { RegistroAdminComponent } from './components/registro-admin/registro-admin.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AgregarParametrosComponent } from './components/agregar-parametros/agregar-parametros.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginPasswordComponent,
     RegistroAdminComponent,
     LoginAdminComponent,
-    NavbarComponent
+    NavbarComponent,
+    AgregarParametrosComponent
   ],
   imports: [
     BrowserModule,

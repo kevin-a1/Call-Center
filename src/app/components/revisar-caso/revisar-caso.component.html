@@ -3,6 +3,7 @@
       <div class="container">
         <div class="container">
           <h1>Casos</h1>
+          <span class="response" *ngIf="response_condicion == false">{{ response_msg }}</span>
           <table>
             <thead>
               <th scope="col">Ticket Id</th>
