@@ -33,6 +33,8 @@ export class RegistroUsuarioComponent implements OnInit {
           
           console.log('Usuario registrado')
           console.log(data.data)
+          localStorage.setItem('logged_in', 'true')
+          localStorage.setItem('type_user_logged_in', 'Usuario')
 
         } else {
           this.response_condicion = true

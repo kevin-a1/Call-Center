@@ -40,7 +40,7 @@ export class LoginPasswordComponent implements OnInit {
 
         if(data.transacción == true){
 
-          this.app.showNavbar();
+          localStorage.setItem('logged_in', 'true')
           localStorage.setItem('type_user_logged_in', 'Usuario')
 
           console.log('CORREO: '+this.correo);

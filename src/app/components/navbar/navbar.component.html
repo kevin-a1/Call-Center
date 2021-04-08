@@ -17,42 +17,42 @@
 
             <!-- Menu Usuario -->
             <li *ngIf="type_user_logged_in == u">
-                <a href="#">Nuevo Caso</a>
+                <a (click)="goNuevoCaso_U()">Nuevo Caso</a>
             </li>
 
             <li *ngIf="type_user_logged_in == u ">
-                <a href="/casos">Mis Casos</a>
+                <a (click)="goMisCasos_U()">Mis Casos</a>
             </li>
 
             <!-- Menú Administrador -->
             <li *ngIf="type_user_logged_in == a">
-                <a href="#">Mis Casos</a>
+                <a (click)="goMisCasos_A()">Mis Casos</a>
             </li>
 
             <!-- Menú Super Administrador -->
             <li *ngIf="type_user_logged_in == sa">
-                <a href="#">Casos</a>
+                <a (click)="goCasos_SA()">Casos</a>
             </li>
 
             <li *ngIf="type_user_logged_in == sa">
-                <a href="#">Administradores <b>▼</b></a>
+                <a (click)="goAdministradores_SA()">Administradores</a>
             </li>
 
             <li *ngIf="type_user_logged_in == sa">
-                <a href="#">Usuarios</a>
+                <a (click)="goUsuarios_SA()">Usuarios</a>
             </li>
 
             <li *ngIf="type_user_logged_in == sa">
-                <a href="#">Catalogos</a>
+                <a (click)="goCatalogos_SA()">Catalogos</a>
             </li>
 
             <!-- Menú todos -->
             <li>
-                <a href="#">Nosotros</a>
+                <a (click)="goNosotros()">Nosotros</a>
             </li>
 
             <li>
-                <a href="#">Contactos</a>
+                <a (click)="goContactos()">Contactos</a>
             </li>
         </ul>
 
