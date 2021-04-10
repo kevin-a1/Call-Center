@@ -46,3 +46,11 @@ td {
 tr:hover {
     background-color: #FFFFFF;
 }
+.response {
+    display: block;
+    margin: auto;
+    text-align: center;
+    color: #FFFFFF;
+    padding-bottom: 15px;
+    font-size: 1.3rem;
+}

@@ -13,6 +13,6 @@ export class TicketService {
   constructor(private http:HttpClient) { }
 
   data( correo: String): Observable<any>{
-    return this.http.get(`${this.URL}/ticket/`+ correo)
+    return this.http.get(`${this.URL}/detalle/caso/`+ correo)
   }
 }
