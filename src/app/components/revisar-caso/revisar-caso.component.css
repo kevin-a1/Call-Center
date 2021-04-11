@@ -1,16 +1,17 @@
-table{
-  width: 100%;
-  border-collapse: collapse;
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-th, td{
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
 .form {
-    background: rgb(192,192,192);
+    background: rgb(192, 192, 192);
     padding: 40px;
     max-width: 900px;
     margin: 16px auto;
@@ -41,12 +42,15 @@ th, td{
 .btn-back:focus {
     background: #5e0b18;
 }
-tr:hover {background-color:#FFFFFF;}
+
+tr:hover {
+    background-color: #FFFFFF;
+}
 .response {
     display: block;
     margin: auto;
     text-align: center;
-    color: #ffffff;
+    color: #FFFFFF;
     padding-bottom: 15px;
     font-size: 1.3rem;
 }

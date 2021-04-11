@@ -6,4 +6,34 @@ img {
 
 .container-logo {
     display: block;
+    width: 100%;
+    background: rgba(19, 35, 47, 0.9);
+    text-align: center;
+    margin: auto;
+    padding: 10px 0px;
+}
+
+.title {
+    display: inline-block;
+    color: aquamarine;
+    vertical-align: middle;
+    padding: 0px 5px;
+    font: bold 40px/1 arial;
+}
+
+.img-logo {
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 5px;
+    border-radius: 50%;
+}
+
+.title:hover {
+    color: azure;
+}
+
+img:hover {
+    background-color: aquamarine;
 }

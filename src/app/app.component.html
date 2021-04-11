@@ -1,16 +1,16 @@
 <header>
+
     <div class="container-logo">
-        <img src="../assets/img/ista-header-logo.png" alt="">
+        <img class="img-logo" src="assets/img/logo-call-center.svg" alt="">
+        <h1 class="title">Call Center - ISTA</h1>
     </div>
     <div>
         <app-navbar *ngIf="logged_in"></app-navbar>
     </div>
+
 </header>
 <main>
 
-    <!-- 
-        <app-login-correo></app-login-correo>
-    -->
     <router-outlet></router-outlet>
 
 </main>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Administrador } from '../../models/administrador';
 import { AdministradorservicesService } from '../../services/administradorservices.service';
+import { CargarScriptsService } from '../../services/cargar-scripts.service';
 
 @Component({
   selector: 'app-registro-admin',
@@ -9,7 +10,9 @@ import { AdministradorservicesService } from '../../services/administradorservic
 })
 export class RegistroAdminComponent implements OnInit {
    administrador:Administrador = new Administrador();
-  constructor(private administradorServ:AdministradorservicesService) { }
+  constructor(private administradorServ:AdministradorservicesService, private cargarScriptsService: CargarScriptsService) {
+    cargarScriptsService.load_js("registro-usuario.component.js");
+  }
 
   ngOnInit(): void {
   }

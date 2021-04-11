@@ -40,9 +40,9 @@ export class LoginPasswordComponent implements OnInit {
 
         if(data.transacción == true){
 
-          this.app.showNavbar();
+          localStorage.setItem('logged_in', 'true')
           localStorage.setItem('type_user_logged_in', 'Usuario')
-
+          this.app.showNavbar();
           console.log('CORREO: '+this.correo);
           console.log('Acceso Permitido');
 

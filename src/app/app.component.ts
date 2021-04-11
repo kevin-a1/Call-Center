@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Call-Center';
 
-  logged_in: boolean = false;
+  logged_in: boolean = (localStorage.getItem('logged_in') != null && localStorage.getItem('logged_in') == 'true');
 
   showNavbar() {
     this.logged_in = true;
