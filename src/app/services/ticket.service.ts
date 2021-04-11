@@ -15,4 +15,8 @@ export class TicketService {
   data( correo: String): Observable<any>{
     return this.http.get(`${this.URL}/ticket/`+ correo)
   }
+
+  crearTicket(tickets: Ticket):Observable<any>{
+    return this.http.post(`${this.URL}/ticket/crear-ticket`,tickets);
+  }
 }
