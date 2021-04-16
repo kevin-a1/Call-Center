@@ -7,15 +7,21 @@ import { Catalogos } from '../models/catalogos';
   providedIn: 'root'
 })
 export class CatalogosservicesService {
-  
+
 private BASE_URL = 'http://localhost:4000';
-  constructor(private http:HttpClient) { 
+  constructor(private http:HttpClient) {
 
   }
 getCatalogos():Observable<any>{
   return this.http.get(`${this.BASE_URL}/catalogos/catalogos-listas`);
 }
+listar():Observable<any>{
+  return this.http.get(`${this.BASE_URL}/catalogo/ver`);
+}
 
+Nuevo(data: Catalogos):Observable<any>{
+  return this.http.post(`${this.BASE_URL}/catalogo/nuevo`, data);
+}
 
 
 }

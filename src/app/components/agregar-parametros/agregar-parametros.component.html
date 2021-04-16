@@ -1,1 +1,101 @@
-<p>agregar-parametros works!</p>
+<main>
+ <div class="form">
+  <div class="container" *ngFor ='let data of datos'>
+   <h1>Catalogo de Datos</h1>
+   <br>
+   <div class="container" >
+     <table>
+      <thead>
+       <th scope="col">Prioridad del Ticket</th>
+       <th scope="col">Agregar</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{data.prioridad_ticket}}</td>
+          <td>
+            <button type="button" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == false">Nuevo</button>
+            <input [(ngModel)] = "ptk" type="text" name="est_admin" *ngIf='response_condicion == true'>
+          </td>
+        </tr>
+      </tbody>
+     </table>
+   </div>
+   <br>
+   <div class="container">
+     <table>
+      <thead>
+       <th scope="col">Tipo de Casos</th>
+       <th scope="col">Agregar</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{data.tipo_caso}}</td>
+          <td>
+            <button type="button" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == false">Nuevo</button>
+            <input [(ngModel)] = "tc" type="text" name="est_admin" *ngIf='response_condicion == true'>
+          </td>
+        </tr>
+      </tbody>
+     </table>
+     <br>
+     <div class="container" >
+       <table>
+        <thead>
+         <th scope="col">Estado de Ticket</th>
+         <th scope="col">Agregar</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{data.estado_ticket}}</td>
+            <td>
+              <button type="button" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == false">Nuevo</button>
+              <input [(ngModel)] = "etk" type="text" name="est_admin" *ngIf='response_condicion == true'>
+            </td>
+          </tr>
+        </tbody>
+       </table>
+     </div>
+     <br>
+     <div class="container" >
+       <table>
+        <thead>
+         <th scope="col">Estado de Administrador</th>
+         <th scope="col">Agregar</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{data.estado_administrador}}</td>
+            <td>
+              <button type="button" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == false">Nuevo</button>
+              <input [(ngModel)] = "ead" type="text" name="est_admin" *ngIf='response_condicion == true' required>
+              <button type="submit" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == true"  (click)="fals()">Cancelar</button>
+            </td>
+          </tr>
+        </tbody>
+       </table>
+     </div>
+     <br>
+     <div class="container" >
+       <table>
+        <thead>
+         <th scope="col">Rol de Administrador</th>
+         <th scope="col">Agregar</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{data.rol_administrador}}</td>
+            <td>
+              <button type="button" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == false">Nuevo</button>
+              <input [(ngModel)] = "rad" type="text" name="est_admin" *ngIf='response_condicion == true'>
+            </td>
+          </tr>
+        </tbody>
+       </table>
+     </div>
+     <div class="container">
+       <button type="submit" (click) = "agregar()" (click)="fals()">Guardar Cambios</button>
+     </div>
+   </div>
+  </div>
+</div>
+</main>
