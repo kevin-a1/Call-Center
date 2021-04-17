@@ -1,0 +1,74 @@
+<main>
+    <div class="form">
+
+        <div class="container">
+            <div id="signup">
+
+                <h1>Generar Ticket</h1>
+
+                <form class="form-signin" [formGroup]="ticketsumbitGroup" (ngSubmit)="crearTiktes(ticketsumbitGroup.value)">
+                    <div class="field-wrap">
+                        <label>Asunto<span class="req">*</span></label>
+                        <input [(ngModel)]="tickets.asunto" formControlName="asunto" name="asunto" type="text" required autocomplete="off" minlength="8" maxlength="100" value="hola"/>
+                    </div>
+
+                      <div class="form-wrap">
+                            <textarea  class="form-control" name="descripcion" placeholder="descripcionticket" [(ngModel)]="tickets.descripcion" formControlName="descripcion" style="height: 100px" maxlength="300"></textarea>
+                        </div>
+                        <br><br>
+                    <div class="field-wrap">
+                        <input   name="imagenes" [(ngModel)]="tickets.imagenes" formControlName="imagenes" type="file" id="add-new-photo" multiple />
+                    </div>
+
+                    <div class="field-wrap">
+                        <input name="fecha" [(ngModel)]="tickets.fecha"   formControlName="fecha"  type="text" value="{{mostrar_fecha()}}"/>
+                    </div>
+
+
+                    <div class="field-wrap">
+                        <select class="selectores"  [(ngModel)]="tickets.tipo_caso" formControlName="tipo_caso" aria-label="Default select example">
+                            <option selected>Tipo de Caso</option>
+                            <option value="Soporte">Soporte</option>
+                            <option value="Nueva funcionalidad">Nueva funcionalidad</option>
+                            <option value="Papeleo">Papeleo</option>
+                        </select>
+                    </div>
+                    <div class="field-wrap">
+                        <select class="selectores" aria-label="Default select example" >
+                            <option selected>Tipo de Caso</option>
+                            <tr *ngFor = "let catalogos of catalogoArray">
+                                <option>{{catalogos.tipo_caso}}</option>
+                            </tr>
+                        </select>
+                    </div>
+
+                    <div class="field-wrap">
+                        <select class="selectores" [(ngModel)]="tickets.prioridad" formControlName="prioridad" aria-label="Default select example">
+                            <option selected>Prioridad</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Baja">Baja</option>
+                            <option value="Media">Media</option>
+                        </select>
+                    </div>
+                    
+                   
+                    <div class="field-wrap">
+                        <label>USUARIO NOMBRE<span class="req">*</span></label>
+                        <input  name="password" [(ngModel)]="tickets.usuario_email" formControlName="usuario_email" type="text" required autocomplete="off" minlength="8" maxlength="30" />
+                    </div>
+    
+                    <span class="response" ></span>
+
+                    <div class="c-btn">
+                        <button type="submit"  class="button button-block">Publicar</button>
+                    </div>
+
+                    <div class="c-btn">
+                        <button  class="btn-back">Regresar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

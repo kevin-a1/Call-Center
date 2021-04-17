@@ -2,7 +2,7 @@ export class Ticket {
   _id: string
   ticket_id: string
   asunto: string
-  descripción: string
+  descripcion: string
   imagenes = []
   fecha: string
   tipo_caso: string
