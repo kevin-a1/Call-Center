@@ -15,6 +15,7 @@ import { LoginAdminComponent } from './components/login-admin/login-admin.compon
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AgregarParametrosComponent } from './components/agregar-parametros/agregar-parametros.component';
 import { AdministradoresComponent } from './components/administradores/administradores.component';
+import { DetalleCasoComponent } from './components/detalle-caso/detalle-caso.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AdministradoresComponent } from './components/administradores/administr
     LoginAdminComponent,
     NavbarComponent,
     AgregarParametrosComponent,
-    AdministradoresComponent
+    AdministradoresComponent,
+    DetalleCasoComponent
   ],
   imports: [
     BrowserModule,

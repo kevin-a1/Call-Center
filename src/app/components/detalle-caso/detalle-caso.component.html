@@ -1,0 +1,62 @@
+<main>
+    <div class="form">
+        <div class="container">
+      
+            <div class="detalle">
+                <h1>DETALLE CASO</h1>
+                <span class="response" *ngIf="response_condicion == false">{{response_msg}}</span>
+                <tr *ngFor="let datos of ticket">
+                    <p>Ticket Id: <span>{{ datos.ticket_id }}</span></p>
+                    <br/>
+                    <p>Asunto: <span>{{ datos.asunto }}</span></p>
+                    <br/>
+                    <p>Caso: <span>{{ datos.tipo_caso }}</span></p>
+                    <br/>
+                    <p>Creador: <span>{{ datos.usuario_email }}</span></p>
+                    <br/>
+                    <p>Responsable: <span>{{ datos.responsable }}</span></p>
+                    <br/>
+                    <p>Fecha: <span>{{ datos.fecha }}</span></p>
+                    <br/>
+                    <p>Estado: <span>{{ datos.estado }}</span></p>
+                    <br/>
+                    <p>Evidencia: </p>
+                    <br/>
+                    <div *ngFor="let item of datos.imagenes">
+                        <img class="evimg" src= {{item}}>
+                    </div>
+                </tr>
+            </div>
+
+            <div class="chat">
+                <h1>MENSAJES DEL CASO</h1>
+                <span class="response" *ngIf="response_condicion == false">{{response_msg}}</span>
+                <table>
+                    <tbody>
+                        <div class ="message">
+                            <tr *ngFor="let d of mensajes">
+                                <td>
+                                    <label class="emi">{{d.emisor}}</label>
+                                    <p class="mens">{{d.mensaje}}</p> 
+                                    <div *ngIf= "d.imagen != null"><img src= {{d.imagen}}></div>
+                                </td> 
+                            </tr>           
+                        </div>
+                    </tbody>
+                </table>
+                <br/>
+
+                <input  class="mmss" type="text" [(ngModel)]="mensaje.mensaje" required autocomplete="off"/>
+                <div class ="c-btn">
+                    <button id ="btn2" class ="button button-block" (click)="guardar()" type="submit">
+                        Enviar
+                    </button>
+                </div>
+                <div *ngIf= "url != ''"><img [src]="url" height="200"></div>
+                <br>
+                <input type="file" (change)="onselectFile($event)">
+
+            </div>
+        </div>
+    </div>
+</main>
