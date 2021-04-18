@@ -1,7 +1,7 @@
 export class Catalogos {
-  prioridad_ticket:[];
-  tipo_caso:[];
-  estado_ticket:[];
-  estado_administrador:[];
-  rol_administrador:[];  
+  prioridad_ticket:string []=[];
+  tipo_caso:string [] =[];
+  estado_ticket:string [] =[];
+  estado_administrador:string [] = [];
+  rol_administrador:string []=[];
 }

@@ -14,9 +14,10 @@ import { RegistroAdminComponent } from './components/registro-admin/registro-adm
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AgregarParametrosComponent } from './components/agregar-parametros/agregar-parametros.component';
+import { AdministradoresComponent } from './components/administradores/administradores.component';
+import { DetalleCasoComponent } from './components/detalle-caso/detalle-caso.component';
 import { CrearTicketsComponent } from './components/crear-tickets/crear-tickets.component';
 import { CatalogosservicesService } from './services/catalogosservices.service';
-import { AdministradoresComponent } from './components/administradores/administradores.component';
 
 
 @NgModule({
