@@ -16,6 +16,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AgregarParametrosComponent } from './components/agregar-parametros/agregar-parametros.component';
 import { CrearTicketsComponent } from './components/crear-tickets/crear-tickets.component';
 import { CatalogosservicesService } from './services/catalogosservices.service';
+import { AdministradoresComponent } from './components/administradores/administradores.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CatalogosservicesService } from './services/catalogosservices.service';
     LoginAdminComponent,
     NavbarComponent,
     AgregarParametrosComponent,
-    CrearTicketsComponent
+    CrearTicketsComponent,
+    AdministradoresComponent
   ],
   imports: [
     BrowserModule,

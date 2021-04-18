@@ -1,4 +1,3 @@
-<p>registro-admin works!</p>
 <main>
     <div class="form">
 
@@ -10,48 +9,57 @@
                 <form>
 
                     <div class="field-wrap">
-                        <label>Correo<span class="req">*</span></label>
-                        <input name="correo" id="email" type="email" required autocomplete="off" maxlength="100" readonly />
+                        <label>Usuario<span class="req">*</span></label>
+                        <input [(ngModel)]="administrador.usuario" name="usuario" id="usuario" type="text" required autocomplete="off" maxlength="20" pattern="[A-Z]" />
                     </div>
 
                     <div class="top-row">
                         <div class="field-wrap">
                             <label>Nombre<span class="req">*</span></label>
-                            <input name="nombre" type="text" required autocomplete="off" maxlength="20" />
+                            <input [(ngModel)]="administrador.nombre" name="nombre" type="text" required autocomplete="off" maxlength="20" pattern="[A-Z]" />
                         </div>
 
                         <div class="field-wrap">
                             <label>Apellido<span class="req">*</span></label>
-                            <input name="apellido" type="text" required autocomplete="off" maxlength="20" pattern="[A-Z]" />
+                            <input [(ngModel)]="administrador.apellido" name="apellido" type="text" required autocomplete="off" maxlength="20" pattern="[A-Z]" />
                         </div>
                     </div>
 
                     <div class="field-wrap">
-                        <label>Nombre de Usuario<span class="req">*</span></label>
-                        <input name="usuario" type="text" required autocomplete="off" maxlength="20" pattern="[A-Z]" />
+                        <label>Correo<span class="req">*</span></label>
+                        <input [(ngModel)]="administrador.correo" name="correo" id="email" type="email" required autocomplete="off" maxlength="100" />
+                    </div>
+
+                    <div class="top-row">
+                        <div class="field-wrap">
+                            <label for="rol">Rol<span class="req">*</span></label>
+                            <select [(ngModel)]="administrador.rol" name="rol" id="rol" required>
+                                <option *ngFor="let r of roles" value={{r}} selected="false">{{ r }}</option>
+                            </select > 
+                        </div>
+                        <div class="field-wrap">
+                            <label for="estado">Estado<span class="req">*</span></label>
+                            <select [(ngModel)]="administrador.estado" name="estado" id="estado" required>
+                                <option *ngFor="let e of estados" value={{e}} selected="false">{{ e }}</option>
+                            </select > 
+                        </div>
                     </div>
 
                     <div class="field-wrap">
-                        <select name="rol" id="rol" maxlength="20">
-                            <option value="administrador">Administrador</option>
-                            <option value="soporte">Soporte</option>
-                        </select > 
-                    </div>   
-
-                    <div class="field-wrap">
                         <label>Contraseña<span class="req">*</span></label>
-                        <input  name="password" type="password" required autocomplete="off" minlength="8" maxlength="30" />
+                        <input [(ngModel)]="administrador.password" name="password" type="password" required autocomplete="new-password" minlength="8" maxlength="30" />
                     </div>
 
                     <div class="field-wrap">
                         <label>Confirmar Contraseña<span class="req">*</span></label>
-                        <input type="password" required autocomplete="off" />
+                        <input [(ngModel)]="confirmar_pass" name="confirmar_pass" type="password" required autocomplete="new-password" />
                     </div>
+
+                    <span class="response" *ngIf="response_condicion == true">{{ response_msg }}</span>
 
                     <div class="c-btn">
-                        <button type="submit" class="button button-block">Guardar</button>
+                        <button (click)="addAdmin()" type="reset" class="button button-block">Guardar</button>
                     </div>
-
                 </form>
             </div>
         </div>

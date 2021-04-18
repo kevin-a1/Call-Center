@@ -1,4 +1,4 @@
-$('.form').find('input, textarea').on('keyup blur focus show', function(e) {
+$('.form').find('input, textarea, select').on('keyup blur focus show change', function(e) {
 
     var $this = $(this),
         label = $this.prev('label');
@@ -29,7 +29,6 @@ $('.form').find('input, textarea').on('keyup blur focus show', function(e) {
     } else {
         label.addClass('active highlight');
     }
-
 });
 
 $('#email').focus();

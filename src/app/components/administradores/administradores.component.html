@@ -1,9 +1,15 @@
+<div>
+    <h2 class="title">Nuevo Administrador</h2>
+    <div>
+        <app-registro-admin></app-registro-admin>
+    </div>
+</div>
+
 <div class="limiter">
 
     <h2 class="title">Lista Administradores</h2>
 
     <div class="container-table100">
-
 
         <div class="wrap-table100">
 
@@ -22,20 +28,8 @@
                     <div class="cell">
                         Estado
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="cell" data-title="Nombres">
-                        Vincent Williamson
-                    </div>
-                    <div class="cell" data-title="Age">
-                        31
-                    </div>
-                    <div class="cell" data-title="Job Title">
-                        iOS Developer
-                    </div>
-                    <div class="cell" data-title="Location">
-                        Washington
+                    <div class="cell">
+                        Acciones
                     </div>
                 </div>
 
@@ -43,26 +37,21 @@
                     <div class="cell" data-title="Nombres">
                         {{ a.nombre }} {{ a.apellido }}
                     </div>
-                    <div class="cell" data-title="Age">
+                    <div class="cell" data-title="Correo">
                         {{ a.correo }}
                     </div>
-                    <div class="cell" data-title="Job Title">
+                    <div class="cell" data-title="Rol">
                         {{ a.rol }}
                     </div>
-                    <div class="cell" data-title="Location">
+                    <div class="cell" data-title="Estado">
                         {{ a.estado }}
                     </div>
+                    <div class="cell" data-title="Acciones">
+                        <input class="btn-update" (click)="updateAdmin(a)" type="image" src="../../../assets/img/pencil.svg" alt="Delete">
+                        <input class="btn-delete" (click)="deleteAdmin(a)" type="image" src="../../../assets/img/delete.svg" alt="Delete">
+                    </div>
                 </div>
-
             </div>
         </div>
-
-    </div>
-</div>
-
-<div>
-    <h2 class="title">Nuevo Administrador</h2>
-    <div>
-        <app-registro-admin></app-registro-admin>
     </div>
 </div>

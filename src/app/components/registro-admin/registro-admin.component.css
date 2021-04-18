@@ -85,7 +85,6 @@ label {
     font-size: 22px;
 }
 
-
 label .req {
     margin: 2px;
     color: #1ab188;
@@ -126,7 +125,7 @@ select {
     width: 100%;
     height: 40px;
     padding: 5px 10px;
-    background:rgba(19, 35, 47, 0.3);
+    background: rgba(19, 35, 47, 0.3);
     border: 1px solid #a0b3b0;
     color: #ffffff;
     border-radius: 0;
@@ -222,11 +221,15 @@ main {
     padding: 5px;
 }
 
-.btn-back:hover,
-.btn-back:focus {
-    background: #5e0b18;
-}
-
 .center {
     margin: auto;
+}
+
+.response {
+    display: block;
+    margin: auto;
+    text-align: center;
+    color: #e74b65;
+    padding-bottom: 15px;
+    font-size: 1.3rem;
 }

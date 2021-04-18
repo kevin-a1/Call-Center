@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
 export class RegistroUsuarioComponent implements OnInit {
 
   usuario: Usuario = new Usuario();
-  response_condicion: boolean = false
-  response_msg: string = "Todo bien"
+  response_condicion: boolean = false;
+  response_msg: string = "Todo bien";
 
   constructor(private usuarioService: UsuarioService, private cargarScriptsService: CargarScriptsService, private router: Router) {
     cargarScriptsService.load_js("registro-usuario.component.js");
