@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Administrador } from '../../models/administrador';
 import { AdministradorservicesService } from '../../services/administradorservices.service';
 import { CargarScriptsService } from '../../services/cargar-scripts.service';
@@ -17,23 +17,38 @@ export class RegistroAdminComponent implements OnInit {
   confirmar_pass: String;
   response_condicion: boolean = false;
   response_msg: String;
+  action: string = 'insert';
 
   constructor(private administradorServ:AdministradorservicesService, private cargarScriptsService: CargarScriptsService, private administradoresComponent: AdministradoresComponent) {
 
     cargarScriptsService.load_js("registro-usuario.component.js");
+    cargarScriptsService.$emitter_update_admin.subscribe(admin => {
+      this.update_admin(admin);
+      cargarScriptsService.load_js("registro-usuario.component.js");
+    });
   }
 
   ngOnInit(): void {
   }
 
   addAdmin(){
+
+    console.log(this.action);
+
     if (this.validar_datos(this.administrador) == true) {
 
-      this.administradorServ.crearAdmin(this.administrador).subscribe(data => {
+      this.administradorServ.crearAdmin(this.administrador, this.action).subscribe(data => {
         
         if(data.transaccion == true){
-          alert("Administrador creado");
+
           this.administradoresComponent.readAllAdmins();
+          this.administrador = new Administrador();
+          this.confirmar_pass = "";
+          this.action = 'insert';
+          this.response_msg = "";
+          this.response_condicion = false;
+          alert("Administrador guardado");
+          
         }else{
           this.show_response(data.mensaje);
         }
@@ -44,43 +59,59 @@ export class RegistroAdminComponent implements OnInit {
 
   validar_datos(admin: Administrador):boolean {
 
-    if (Boolean(admin.password) && Boolean(this.confirmar_pass)) {
-      if (admin.password == this.confirmar_pass) {
-        return true;
-      } else {
+    if (Boolean(admin.password) && Boolean(this.confirmar_pass) && admin.password.length > 0 && this.confirmar_pass.length > 0) {
+      if (admin.password != this.confirmar_pass) {
         this.show_response('Campo contraseña y confirmar contraseña son distintas');
+        return false;
       }
     } else {
       this.show_response('Contraseña vacía');
+      return false;
     }
     
-    if (this.validar_rol(admin.rol) == true) {
-      return true;
+    if (this.validar_rol(admin.rol) == false) {
+      return false;
     }
 
-    if (this.validar_estado(admin.estado) == true) {
-      return true;
+    if (this.validar_estado(admin.estado) == false) {
+      return false;
     }
 
-    if (this.validar_correo(admin.correo) == true) {
-      return true;
+    if (this.validar_correo(admin.correo) == false) {
+      return false;
     }
 
-    if (this.validar_nombres([admin.apellido, admin.nombre]) == true) {
-      return true;
+    if (this.validar_nombres([admin.apellido, admin.nombre]) == false) {
+      return false;
     }
     
-    if (this.validar_usuario(admin.usuario) == true) {
-      return true;
+    if (this.validar_usuario(admin.usuario) == false) {
+      return false;
     }
 
      
-    return false;
+    return true;
   }
 
   validar_usuario(user: String): boolean {
     if (Boolean(user)) {
-      return true;
+      
+      if (user.length >= 5 || user.length <= 30) {
+
+        var user_replaced = user.replace('_', 'a').replace('.', 'a').replace('-', 'a');
+
+        if (/[A-Za-z0-9_]/.test(user_replaced)) {
+          return true;
+        } else {
+          this.show_response('Usuario incorrecto, solo puede contener números, letras, guión(-), guión bajo, (_) y punto (.)');
+          return false;
+        }
+
+      } else {
+        this.show_response('La longitud del usuario debe ser mayor a 5 y menor a 30');
+        return false;
+      }
+
     } else {
       this.show_response('Campo usuario vacío');
       return false;
@@ -116,6 +147,7 @@ export class RegistroAdminComponent implements OnInit {
   }
 
   validar_rol(rol: String): boolean {
+    
     if (Boolean(rol)) {
       
       if (this.roles.includes(rol)) {
@@ -151,11 +183,8 @@ export class RegistroAdminComponent implements OnInit {
     this.response_msg = msg;
   }
 
-  public setAdministrador(admin: Administrador) {
-    this.administrador = this.administrador;
-  }
-
-  public getMsg(msg: String) {
-    console.log(msg);
+  update_admin(admin: Administrador) {
+    this.administrador = admin;
+    this.action = 'update';
   }
 }

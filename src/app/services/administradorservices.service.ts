@@ -18,9 +18,9 @@ export class AdministradorservicesService {
     return this.http.get(`${this.BASE_URL}/login/path?data=`+data)
   }
 
-  crearAdmin(administrador:Administrador):Observable<any>{
+  crearAdmin(administrador:Administrador, action:string):Observable<any>{
     administrador.foto = "";
-    return this.http.post(`${this.BASE_URL}/crear`, administrador)
+    return this.http.post(`${this.BASE_URL}/guardar/${action}`, administrador)
   }
 
   getAllAdmins(): Observable<any> {

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { CargarScriptsService } from '../../services/cargar-scripts.service';
 import { Administrador } from '../../models/administrador';
 import { AdministradorservicesService } from '../../services/administradorservices.service';
@@ -14,7 +14,7 @@ export class AdministradoresComponent implements OnInit {
   user_logged_in: string = "super administrador";
   list_administradores: Administrador[] = [];
 
-  constructor(private cargarScriptsService: CargarScriptsService, private administradorService: AdministradorservicesService, private registroAdminComponent:RegistroAdminComponent) {
+  constructor(private cargarScriptsService: CargarScriptsService, private administradorService: AdministradorservicesService) {
     cargarScriptsService.load_js("administradores.component.js");
   }
 
@@ -36,7 +36,7 @@ export class AdministradoresComponent implements OnInit {
     }
   }
 
-  deleteAdmin(administrador: Administrador) {
+  delete_admin(administrador: Administrador) {
     let response = confirm(`¿Desea eliminar al usuario: ${administrador.usuario}?`);
 
     if (response == true) {
@@ -50,10 +50,7 @@ export class AdministradoresComponent implements OnInit {
     }
   }
 
-  updateAdmin(administrador: Administrador) {
+  update_admin(admin: Administrador) {
+    this.cargarScriptsService.emmiter_update_Admin(admin);
   }
-
-  //Public Methods
-
-
 }

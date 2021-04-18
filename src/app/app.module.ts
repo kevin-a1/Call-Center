@@ -32,7 +32,8 @@ import { CatalogosservicesService } from './services/catalogosservices.service';
     NavbarComponent,
     AgregarParametrosComponent,
     CrearTicketsComponent,
-    AdministradoresComponent
+    AdministradoresComponent,
+    DetalleCasoComponent
   ],
   imports: [
     BrowserModule,
