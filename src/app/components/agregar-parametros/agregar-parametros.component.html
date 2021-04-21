@@ -6,15 +6,22 @@
    <div class="container" >
      <table>
       <thead>
-       <th scope="col">Prioridad del Ticket</th>
-       <th scope="col">Agregar</th>
+       <th scope="col"><h3>Prioridad del Ticket</h3></th>
+       <th scope="col">Editar</th>
       </thead>
       <tbody>
-        <tr>
-          <td>{{data.prioridad_ticket}}</td>
+        <tr *ngFor ='let pt of data.prioridad_ticket'>
+          <td>{{pt}}</td>
           <td>
-            <button type="button" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == false">Nuevo</button>
-            <input [(ngModel)] = "ptk" type="text" name="est_admin" *ngIf='response_condicion == true'>
+            <button type="button"  class="btn-back" *ngIf = "response_condicion == false" (click)="elim(1,pt)">Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="button" (click)="nuev(1)" class="btn-back" *ngIf = "response_condicion == false">Nuevo</button>&nbsp;
+            <input [(ngModel)] = "ptk" type="text" name="est_admin" *ngIf='response_condicion == true'>&nbsp;
+            <button type="submit" class="btn-back" *ngIf = "response_condicion == true"  (click)="fals(1)">Cancelar</button>&nbsp;
+            <button class="btn-back" type="submit"  *ngIf = "response_condicion == true" (click) = "agregar()" (click) = fals(6)>Guardar</button>
           </td>
         </tr>
       </tbody>
@@ -24,15 +31,22 @@
    <div class="container">
      <table>
       <thead>
-       <th scope="col">Tipo de Casos</th>
-       <th scope="col">Agregar</th>
+       <th scope="col"><h3>Tipo de Casos</h3></th>
+       <th scope="col">Editar</th>
       </thead>
       <tbody>
-        <tr>
-          <td>{{data.tipo_caso}}</td>
+        <tr *ngFor ='let tp of data.tipo_caso'>
+          <td>{{tp}}</td>
           <td>
-            <button type="button" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == false">Nuevo</button>
-            <input [(ngModel)] = "tc" type="text" name="est_admin" *ngIf='response_condicion == true'>
+            <button type="button"  class="btn-back" *ngIf = "response_condicion1 == false" (click)="elim(2,tp)">Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <button type="button" (click)="nuev(2)" class="btn-back" *ngIf = "response_condicion1 == false">Nuevo</button>&nbsp;
+              <input [(ngModel)] = "tc" type="text" name="est_admin" *ngIf='response_condicion1 == true'>&nbsp;
+              <button type="submit" class="btn-back" *ngIf = "response_condicion1 == true"  (click)="fals(2)">Cancelar</button>&nbsp;
+              <button class="btn-back" type="submit"  *ngIf = "response_condicion1 == true" (click) = "agregar()" (click) = fals(6)>Guardar</button>
           </td>
         </tr>
       </tbody>
@@ -41,15 +55,22 @@
      <div class="container" >
        <table>
         <thead>
-         <th scope="col">Estado de Ticket</th>
-         <th scope="col">Agregar</th>
+         <th scope="col"><h3>Estado de Ticket</h3></th>
+         <th scope="col">Editar</th>
         </thead>
         <tbody>
-          <tr>
-            <td>{{data.estado_ticket}}</td>
+          <tr *ngFor = "let et of data.estado_ticket">
+            <td>{{et}}</td>
             <td>
-              <button type="button" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == false">Nuevo</button>
-              <input [(ngModel)] = "etk" type="text" name="est_admin" *ngIf='response_condicion == true'>
+              <button type="button"  class="btn-back" *ngIf = "response_condicion2 == false" (click)="elim(3,et)">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" (click)="nuev(3)" class="btn-back" *ngIf = "response_condicion2 == false">Nuevo</button>&nbsp;
+              <input [(ngModel)] = "etk" type="text" name="est_admin" *ngIf='response_condicion2 == true'>&nbsp;
+              <button type="submit"  class="btn-back" *ngIf = "response_condicion2 == true"  (click)="fals(3)">Cancelar</button>&nbsp;
+              <button class="btn-back" type="submit"  *ngIf = "response_condicion2 == true" (click) = "agregar()" (click) = fals(6)>Guardar</button>
             </td>
           </tr>
         </tbody>
@@ -59,16 +80,22 @@
      <div class="container" >
        <table>
         <thead>
-         <th scope="col">Estado de Administrador</th>
-         <th scope="col">Agregar</th>
+         <th scope="col"><h3>Estado de Administrador</h3></th>
+         <th scope="col">Editar</th>
         </thead>
         <tbody>
-          <tr>
-            <td>{{data.estado_administrador}}</td>
+          <tr *ngFor = "let ea of data.estado_administrador">
+            <td>{{ea}}</td>
             <td>
-              <button type="button" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == false">Nuevo</button>
-              <input [(ngModel)] = "ead" type="text" name="est_admin" *ngIf='response_condicion == true' required>
-              <button type="submit" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == true"  (click)="fals()">Cancelar</button>
+              <button type="button"  class="btn-back" *ngIf = "response_condicion3 == false" (click)="elim(4,ea)">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" (click)="nuev(4)" class="btn-back" *ngIf = "response_condicion3 == false">Nuevo</button>&nbsp;
+              <input [(ngModel)] = "ead" type="text" name="est_admin" *ngIf='response_condicion3 == true'>&nbsp;
+              <button type="submit"  class="btn-back" *ngIf = "response_condicion3 == true"  (click)="fals(4)">Cancelar</button>&nbsp;
+              <button class="btn-back" type="submit"  *ngIf = "response_condicion3 == true" (click) = "agregar()" (click) = fals(6)>Guardar</button>
             </td>
           </tr>
         </tbody>
@@ -78,22 +105,26 @@
      <div class="container" >
        <table>
         <thead>
-         <th scope="col">Rol de Administrador</th>
-         <th scope="col">Agregar</th>
+         <th scope="col"><h3>Rol de Administrador</h3></th>
+         <th scope="col">Editar</th>
         </thead>
         <tbody>
-          <tr>
-            <td>{{data.rol_administrador}}</td>
+          <tr *ngFor = "let ra of data.rol_administrador">
+            <td>{{ra}}</td>
             <td>
-              <button type="button" (click)="nuev()" class="btn-back" *ngIf = "response_condicion == false">Nuevo</button>
-              <input [(ngModel)] = "rad" type="text" name="est_admin" *ngIf='response_condicion == true'>
+              <button type="button" class="btn-back" *ngIf = "response_condicion4 == false" (click)="elim(5,ra)">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" (click)="nuev(5)" class="btn-back" *ngIf = "response_condicion4 == false">Nuevo</button>&nbsp;
+              <input [(ngModel)] = "rad" type="text" name="est_admin" *ngIf='response_condicion4 == true'>&nbsp;
+              <button type="submit" class="btn-back" *ngIf = "response_condicion4 == true"  (click)="fals(5)">Cancelar</button>&nbsp;
+                <button class="btn-back" type="submit"  *ngIf = "response_condicion4 == true" (click) = "agregar()" (click) = fals(6)>Guardar</button>
             </td>
           </tr>
         </tbody>
        </table>
-     </div>
-     <div class="container">
-       <button type="submit" (click) = "agregar()" (click)="fals()">Guardar Cambios</button>
      </div>
    </div>
   </div>

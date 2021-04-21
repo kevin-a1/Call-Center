@@ -8,6 +8,7 @@ import { RevisarCasoComponent } from "./components/revisar-caso/revisar-caso.com
 import { DetalleCasoComponent } from './components/detalle-caso/detalle-caso.component';
 import { CrearTicketsComponent } from './components/crear-tickets/crear-tickets.component';
 import { AdministradoresComponent } from './components/administradores/administradores.component';
+import { AgregarParametrosComponent } from "./components/agregar-parametros/agregar-parametros.component";
 
 const routes: Routes = [
   { path: 'registro-usuario', component:  RegistroUsuarioComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'casos', component: RevisarCasoComponent},
   { path: 'crear-tickets', component: CrearTicketsComponent},
   { path: 'administradores', component: AdministradoresComponent},
-
+  {path: 'añadir dato', component: AgregarParametrosComponent },
 ];
 
 @NgModule({

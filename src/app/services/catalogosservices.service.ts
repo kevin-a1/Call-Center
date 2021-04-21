@@ -23,5 +23,8 @@ Nuevo(data: Catalogos):Observable<any>{
   return this.http.post(`${this.BASE_URL}/catalogo/nuevo`, data);
 }
 
+eliminar(tipo: String, data: String){
+  return this.http.get(this.BASE_URL+"/catalogo/eliminar/"+tipo+"/"+data);
+}
 
 }
