@@ -78,7 +78,7 @@ export class CrearTicketsComponent implements OnInit {
   crearTiktes(value){
     if(this.verificar){
        this.ticketService.crearTicket(value).subscribe(data => {
-        if(data.transaccion = true){
+        if(data.transaccion = true){  
           console.log("ticket creado");
           console.log(data.data);
           this.router.navigate(['/login-admin'])

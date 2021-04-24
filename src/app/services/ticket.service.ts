@@ -32,7 +32,7 @@ export class TicketService {
   }
 
   crearTicket(tickets: Ticket): Observable<any> {
-    return this.http.post(`${this.URL}/ticket/crear-ticket`,Ticket);
+    return this.http.post(`${this.URL}/ticket/crear-ticket`,tickets);
   }
   
 }
