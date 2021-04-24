@@ -86,7 +86,7 @@ export class RegistroUsuarioComponent implements OnInit {
 
     for (let n of nombres) {
       console.log("aquiii")
-      if (Boolean(n) && n.length == 0) {
+      if (Boolean(n) && n.length > 0) {
         return true;
       } else {
         this.show_response('Campo nombre o apellido vacío');
@@ -96,7 +96,7 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
   validar_correo(correo: String) {
-    if (Boolean(correo) && correo.length == 0) {
+    if (Boolean(correo) && correo.length > 0) {
 
       var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       var DOMINIO_CORREO_ISTA = '@tecazuay.edu.ec'

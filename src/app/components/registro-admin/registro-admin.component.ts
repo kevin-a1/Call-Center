@@ -131,7 +131,7 @@ export class RegistroAdminComponent implements OnInit {
   }
 
   validar_correo(correo: String) {
-    if (Boolean(correo)) {
+    if (Boolean(correo) && correo.length > 0) {
 
       var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
