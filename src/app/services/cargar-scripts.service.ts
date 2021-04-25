@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Administrador } from '../models/administrador';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class CargarScriptsService {
   constructor() { }
 
   $emitter_update_admin = new EventEmitter();
+  $emitter_update_user = new EventEmitter();
 
   load_js(file: string) {
     let script = document.createElement('script')
@@ -19,5 +21,9 @@ export class CargarScriptsService {
 
   emmiter_update_Admin(admin: Administrador) {
     this.$emitter_update_admin.emit(admin);
+  }
+
+  emmiter_update_User(user: Usuario) {
+    this.$emitter_update_user.emit(user);
   }
 }

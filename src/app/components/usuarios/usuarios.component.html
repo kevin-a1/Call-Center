@@ -1,0 +1,39 @@
+<div>
+    <div>
+        <h2 class="title">Usuario</h2>
+        <div>
+            <app-edit-usuario></app-edit-usuario>
+        </div>
+    </div>
+
+    <div class="limiter">
+        <h2 class="title">Lista Usuarios</h2>
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table">
+                    <div class="row header">
+                        <div class="cell">Nombres</div>
+                        <div class="cell">Correo</div>
+                        <div class="cell">Contraseña</div>
+                        <div class="cell">Acciones</div>
+                    </div>
+                    <div *ngFor="let u of users" class="row">
+                        <div class="cell" data-title="Nombres">
+                            {{ u.nombre }} {{ u.apellido }}
+                        </div>
+                        <div class="cell" data-title="Correo">
+                            {{ u.correo }}
+                        </div>
+                        <div class="cell" data-title="Contraseña">
+                            {{ u.password }}
+                        </div>
+                        <div class="cell" data-title="Acciones">
+                            <input class="btn-update" (click)="updateUser(u)" type="image" src="../../../assets/img/pencil.svg" alt="Delete">
+                            <input class="btn-delete" (click)="deleteUser(u)" type="image" src="../../../assets/img/delete.svg" alt="Delete">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</div>

@@ -18,6 +18,8 @@ import { AdministradoresComponent } from './components/administradores/administr
 import { DetalleCasoComponent } from './components/detalle-caso/detalle-caso.component';
 import { CrearTicketsComponent } from './components/crear-tickets/crear-tickets.component';
 import { CatalogosservicesService } from './services/catalogosservices.service';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { EditUsuarioComponent } from './components/edit-usuario/edit-usuario.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { CatalogosservicesService } from './services/catalogosservices.service';
     AgregarParametrosComponent,
     CrearTicketsComponent,
     AdministradoresComponent,
-    DetalleCasoComponent
+    DetalleCasoComponent,
+    UsuariosComponent,
+    EditUsuarioComponent
   ],
   imports: [
     BrowserModule,

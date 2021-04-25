@@ -31,8 +31,20 @@ export class UsuarioService {
     return this.http.get(`${this.BASE_URL}/usuario/correo/`+ correo)
   }
 
+  modificarUser(correo: string, usuario: Usuario): Observable<any>{
+    return this.http.post(`${this.BASE_URL}/usuario/update/${correo}`, usuario);
+  }
+
+  deleteUser(usuario: Usuario):Observable<any>  {
+    return this.http.post(`${this.BASE_URL}/usuario/eliminar`, usuario);
+  }
+
   login(correo: string, passw:string): Observable<any>{
     return this.http.get(`${this.BASE_URL}/usuario/password/${correo}/${passw}`)
+  }
+
+  listUser2(): Observable<any>{
+    return this.http.get(`${this.BASE_URL}/usuario/list`)
   }
 
 }
