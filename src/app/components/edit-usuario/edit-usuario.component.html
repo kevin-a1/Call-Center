@@ -1,0 +1,48 @@
+<main>
+    <div class="form">
+
+        <div class="container">
+            <div id="signup">
+
+                <h1>ACTUALIZAR USUARIO</h1>
+
+                <form>
+
+                    <div class="field-wrap">
+                        <label>Correo<span class="req">*</span></label>
+                        <input [(ngModel)]="usuario.correo" name="correo" id="email" type="email" required autocomplete="off" maxlength="100" readonly />
+                    </div>
+
+                    <div class="top-row">
+                        <div class="field-wrap">
+                            <label>Nombre<span class="req">*</span></label>
+                            <input [(ngModel)]="usuario.nombre" name="nombre" type="text" required autocomplete="off" maxlength="20" />
+                        </div>
+
+                        <div class="field-wrap">
+                            <label>Apellido<span class="req">*</span></label>
+                            <input [(ngModel)]="usuario.apellido" name="apellido" type="text" required autocomplete="off" maxlength="20" pattern="[A-Z]" />
+                        </div>
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>Contraseña<span class="req">*</span></label>
+                        <input [(ngModel)]="usuario.password" name="password" type="password" id="password" required autocomplete="new-password" minlength="8" maxlength="30" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>Confirmar Contraseña<span class="req">*</span></label>
+                        <input [(ngModel)]="confirmar_pass" name="password" type="password" required autocomplete="new-password" />
+                    </div>
+
+                    <span class="response" *ngIf="response_condicion == true">{{ response_msg }}</span>
+
+                    <div class="c-btn">
+                        <button type="submit" (click)="update()" class="button button-block">Actualizar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

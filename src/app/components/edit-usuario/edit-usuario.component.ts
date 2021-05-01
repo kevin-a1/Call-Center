@@ -1,49 +1,50 @@
-
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../models/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { CargarScriptsService } from '../../services/cargar-scripts.service';
+import { UsuariosComponent } from '../usuarios/usuarios.component';
 import { Router } from '@angular/router';
 import { AppComponent } from '../../app.component';
-
+import { Usuario } from '../../models/usuario';
 
 @Component({
-  selector: 'app-registro-usuario',
-  templateUrl: './registro-usuario.component.html',
-  styleUrls: ['./registro-usuario.component.css'],
+  selector: 'app-edit-usuario',
+  templateUrl: './edit-usuario.component.html',
+  styleUrls: ['./edit-usuario.component.css']
 })
-
-export class RegistroUsuarioComponent implements OnInit {
+export class EditUsuarioComponent implements OnInit {
 
   usuario: Usuario = new Usuario();
   confirmar_pass: String;
   response_condicion: boolean = false;
   response_msg: String;
 
-  constructor(private usuarioService: UsuarioService, private cargarScriptsService: CargarScriptsService, private router: Router, private app:AppComponent) {
+  constructor(private usuarioService: UsuarioService, private cargarScriptsService: CargarScriptsService, 
+    private router: Router, private app:AppComponent, usersComponent: UsuariosComponent) {
     cargarScriptsService.load_js("registro-usuario.component.js");
+    cargarScriptsService.$emitter_update_user.subscribe(user => {
+      this.usuario = user;
+      this.confirmar_pass = "";
+      cargarScriptsService.load_js("registro-usuario.component.js");
+    });
+
   }
 
   ngOnInit(): void {
-    this.usuario.correo = localStorage.getItem('correo')
   }
 
-  registrar() {
+  update() {
 
     if (this.validarUsuario(this.usuario) == true) {
+      console.log(this.usuario.correo)
 
-      console.log("pruebas")
-      
-      this.usuarioService.createUser(this.usuario).subscribe(data => {
+      this.usuarioService.modificarUser(this.usuario.correo, this.usuario).subscribe(data => {
+
+        console.log(this.usuario.correo)
 
         if (data.transaccion == true) {
-          console.log('Usuario registrado')
+          console.log('Usuario modificado')
           console.log(data.data)
-
-          localStorage.setItem('logged_in', 'true')
-          localStorage.setItem('type_user_logged_in', 'Usuario')
-          localStorage.setItem('correo', null)
-          this.app.showNavbar();
+          this.usuario = new Usuario();
 
         } else {
           this.response_condicion = true
@@ -56,9 +57,6 @@ export class RegistroUsuarioComponent implements OnInit {
     }
   }
 
-  back() {
-    this.router.navigate(['/login'])
-  }
 
   validarUsuario(user: Usuario):boolean {
 

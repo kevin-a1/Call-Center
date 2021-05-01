@@ -9,18 +9,20 @@ import { DetalleCasoComponent } from './components/detalle-caso/detalle-caso.com
 import { CrearTicketsComponent } from './components/crear-tickets/crear-tickets.component';
 import { AdministradoresComponent } from './components/administradores/administradores.component';
 import { AgregarParametrosComponent } from "./components/agregar-parametros/agregar-parametros.component";
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 const routes: Routes = [
   { path: 'registro-usuario', component:  RegistroUsuarioComponent },
   { path: 'login', component: LoginCorreoComponent},
   { path: 'login-password', component: LoginPasswordComponent },
   { path: 'login-admin', component: LoginAdminComponent},
-  {path: 'casos', component: RevisarCasoComponent},
+  { path: 'casos', component: RevisarCasoComponent},
   { path: 'detalle', component: DetalleCasoComponent},
   { path: 'casos', component: RevisarCasoComponent},
   { path: 'crear-tickets', component: CrearTicketsComponent},
   { path: 'administradores', component: AdministradoresComponent},
-  {path: 'añadir dato', component: AgregarParametrosComponent },
+  { path: 'añadir dato', component: AgregarParametrosComponent },
+  { path: 'usuarios', component: UsuariosComponent},
 ];
 
 @NgModule({
