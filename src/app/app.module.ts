@@ -18,6 +18,7 @@ import { AdministradoresComponent } from './components/administradores/administr
 import { DetalleCasoComponent } from './components/detalle-caso/detalle-caso.component';
 import { CrearTicketsComponent } from './components/crear-tickets/crear-tickets.component';
 import { CatalogosservicesService } from './services/catalogosservices.service';
+import { CasosAbiertosComponent } from './components/casos-abiertos/casos-abiertos.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CatalogosservicesService } from './services/catalogosservices.service';
     AgregarParametrosComponent,
     CrearTicketsComponent,
     AdministradoresComponent,
-    DetalleCasoComponent
+    DetalleCasoComponent,
+    CasosAbiertosComponent
   ],
   imports: [
     BrowserModule,

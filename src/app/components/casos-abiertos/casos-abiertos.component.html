@@ -1,0 +1,49 @@
+<div class="limiter">
+
+    <h2 class="title">Lista Administradores</h2>
+
+    <div class="container-table100">
+
+        <div class="wrap-table100">
+
+            <div class="table">
+
+                <div class="row header">
+                    <div class="cell">
+                        Ticket ID
+                    </div>
+                    <div class="cell">
+                        Asunto
+                    </div>
+                    <div class="cell">
+                        Tipo Caso
+                    </div>
+                    <div class="cell">
+                        Prioridad
+                    </div>
+                    <div class="cell">
+                        Acciones
+                    </div>
+                </div>
+
+                <div *ngFor="let t of tickets" class="row">
+                    <div class="cell" data-title="Ticket ID">
+                        {{ t.ticket_id }}
+                    </div>
+                    <div class="cell" data-title="Asunto">
+                        {{ t.asunto }}
+                    </div>
+                    <div class="cell" data-title="Tipo Caso">
+                        {{ a.tipo_caso }}
+                    </div>
+                    <div class="cell" data-title="Prioridad">
+                        {{ a.prioridad }}
+                    </div>
+                    <div class="cell" data-title="Acciones">
+                        <input class="btn-asignarme" type="button" value="Asignarme">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
