@@ -5,7 +5,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CatalogosservicesService } from '../../services/catalogosservices.service';
 import { Catalogos } from '../../models/catalogos';
-
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-crear-tickets',
@@ -13,22 +13,13 @@ import { Catalogos } from '../../models/catalogos';
   styleUrls: ['./crear-tickets.component.css']
 })
 export class CrearTicketsComponent implements OnInit {
-  ticketsumbitGroup = new FormGroup({
-    ticket_id : new FormControl(''),
-    asunto : new FormControl(''),
-    descripcion : new FormControl(''),
-    imagenes : new FormControl([]),
-    fecha : new FormControl(''),
-    tipo_caso : new FormControl(''),
-    prioridad : new FormControl(''),
-    estado : new FormControl('Abierto'),
-    usuario_email : new FormControl(''),
-    resposable : new FormControl([])
-  });
+  public archivos:any = [];
+  public previsualizar:string;
+  public listaIMAGENES:any=[];
   tickets:Ticket= new Ticket();
   response: boolean = false;
   catalogoArray:Catalogos[] = [];
-  constructor(private ticketService:TicketService, private router:Router, private catalogoservice:CatalogosservicesService) { }
+  constructor(private sant:DomSanitizer,private ticketService:TicketService, private router:Router, private catalogoservice:CatalogosservicesService) { }
 
   ngOnInit(): void {
     this.catalogoservice.getCatalogos()
@@ -40,6 +31,81 @@ export class CrearTicketsComponent implements OnInit {
     );
   }
 
+  onSelectNewFile(event):any{
+    this.archivos=[]
+    this.listaIMAGENES=[]
+    for(var i=0;i<=File.length;i++){
+      var read = new FileReader();
+      console.log(read)
+      read.readAsDataURL(event.target.files[i])
+      read.onload = (event:any)=>{
+        this.archivos.push(event.target.result)
+      }
+    }
+    this.archivos.forEach(archis =>{
+      this.extraerBASE64(archis).then((imagen:any)=>{
+      this.previsualizar = imagen.base;
+      });
+    });  
+    this.listaIMAGENES.push(this.archivos)
+    console.log(this.listaIMAGENES)
+    return this.archivos;  
+  }
+
+  extraerBASE64=async($event:any) => new Promise((resolve,reject)=>{
+    try {
+      const unsafeimg = window.URL.createObjectURL($event);
+      const image = this.sant.bypassSecurityTrustUrl(unsafeimg);
+      let reader = new FileReader();
+      reader.readAsDataURL($event);
+      reader.onload = () => {
+        resolve({
+          blob:$event,
+          image,
+          base:reader.result as string
+        });
+      };
+    } catch (error) {
+      return null+"error carga de imagenes";
+    }
+  });
+
+  imagen1(){
+    var imagen1 = this.archivos[0]
+    return imagen1
+  }
+  imagen2(){
+    var imagen2 = this.archivos[1]
+    return imagen2
+  }
+  imagen3(){
+    var imagen3 = this.archivos[2]
+    return imagen3
+  }
+
+  imagenesfin(){
+    var imagen1 = this.archivos[0]
+    var imagen2 = this.archivos[1]
+    var imagen3 = this.archivos[2]
+    var finimagen = [[imagen1],[imagen2],[imagen3]]
+    this.tickets.imagenes=finimagen;
+    return finimagen
+  }
+
+
+  ticketsumbitGroup = new FormGroup({
+    ticket_id : new FormControl(''),
+    asunto : new FormControl(''),
+    descripcion : new FormControl(''),
+    imagenes : new FormControl(this.imagenesfin()),
+    fecha : new FormControl(''),
+    tipo_caso : new FormControl(''),
+    prioridad : new FormControl(''),
+    estado : new FormControl('Abierto'),
+    usuario_email : new FormControl(''),
+    responsable : new FormControl([])
+  });
+  
   mostrar_fecha(){
     var fecha = new Date();
     var años = fecha.getFullYear();
