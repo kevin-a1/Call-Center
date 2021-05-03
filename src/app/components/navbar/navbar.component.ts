@@ -9,12 +9,11 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  //type_user_logged_in: String = localStorage.getItem('type_user_logged_in');
+  type_user_logged_in: String = localStorage.getItem('type_user_logged_in');
   
   u: string = 'Usuario';
   a: string = 'Administrador';
   sa: string = 'Super Administrador';
-  type_user_logged_in: String = this.a;
 
   constructor(private cargarScriptsService:CargarScriptsService, private router: Router) {
     cargarScriptsService.load_js("navbar.component.js");
@@ -27,7 +26,7 @@ export class NavbarComponent implements OnInit {
 
   goNuevoCaso_U() {
     if (this.type_user_logged_in == this.u) {
-      this.router.navigate([]);
+      this.router.navigate(['/crear-tickets']);
     }
   }
 
@@ -61,19 +60,19 @@ export class NavbarComponent implements OnInit {
 
   goAdministradores_SA() {
     if (this.type_user_logged_in == this.sa) {
-      this.router.navigate([]);
+      this.router.navigate(['/administradores']);
     }
   }
 
   goUsuarios_SA() {
     if (this.type_user_logged_in == this.sa) {
-      this.router.navigate([]);
+      this.router.navigate(['/usuarios']);
     }
   }
 
   goCatalogos_SA() {
     if (this.type_user_logged_in == this.sa) {
-      this.router.navigate([]);
+      this.router.navigate(['/parametros']);
     }  
   }
 

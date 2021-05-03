@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Administrador } from '../../models/administrador';
 import { AdministradorservicesService } from '../../services/administradorservices.service';
 import { FormGroup, FormControl} from '@angular/forms';
+import { CargarScriptsService } from '../../services/cargar-scripts.service';
+import { Router } from '@angular/router';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-login-admin',
@@ -15,7 +18,9 @@ export class LoginAdminComponent implements OnInit {
   });
   correoverificar : string;
   administrador:Administrador = new Administrador();
-  constructor(private administradorservice:AdministradorservicesService) { }
+  constructor(private administradorservice:AdministradorservicesService, private cargarScriptsService: CargarScriptsService, private router: Router, private app:AppComponent) {
+    cargarScriptsService.load_js("registro-usuario.component.js");
+  }
     
   ngOnInit(): void {
   }
@@ -30,9 +35,12 @@ export class LoginAdminComponent implements OnInit {
     console.log(this.correoverificar)
     this.administradorservice.getValidarCorreo(this.correoverificar+"").subscribe(data=>{
       if(data.transaccion == true){
-        console.log("Administrador ya existe")
-        console.log(data)
-        console.log(data.dat)
+
+        let admin = data.data
+        localStorage.setItem('type_user_logged_in', admin.rol);
+        localStorage.setItem('logged_in', 'true')
+        this.app.showNavbar();
+        this.router.navigate(['/']);
       }else{
         console.log("El administrador no existe")
       }

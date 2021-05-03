@@ -22,9 +22,9 @@ export class RegistroAdminComponent implements OnInit {
   constructor(private administradorServ:AdministradorservicesService, private cargarScriptsService: CargarScriptsService, private administradoresComponent: AdministradoresComponent) {
 
     cargarScriptsService.load_js("registro-usuario.component.js");
+    
     cargarScriptsService.$emitter_update_admin.subscribe(admin => {
       this.update_admin(admin);
-      cargarScriptsService.load_js("registro-usuario.component.js");
     });
   }
 

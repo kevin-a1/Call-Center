@@ -9,36 +9,37 @@
                 <form class="form-signin" [formGroup]="ticketsumbitGroup" (ngSubmit)="crearTiktes(ticketsumbitGroup.value)">
                     <div class="field-wrap">
                         <label>Asunto<span class="req">*</span></label>
-                        <input [(ngModel)]="tickets.asunto" formControlName="asunto" name="asunto" type="text" required autocomplete="off" minlength="8" maxlength="100" value="hola"/>
+                        <input [(ngModel)]="tickets.asunto" formControlName="asunto" name="asunto" type="text" required autocomplete="off" minlength="8" maxlength="100" value="hola" />
                     </div>
 
-                      <div class="form-wrap">
-                            <textarea  class="form-control" name="descripcion" placeholder="descripcionticket" [(ngModel)]="tickets.descripcion" formControlName="descripcion" style="height: 100px" maxlength="300"></textarea>
-                        </div>
-                        <br><br>
-                        <div class="field-wrap">
-                            <input  type="file" id="imagen_uploads"  name="imagen_uploads" accept=".jpg, .jpag, .png" [(ngModel)]="tickets.imagenes"  (change)="onSelectNewFile($event)" multiple />
-                        </div>
-                        
-                      
-                        <div class="field-wrap" style="position: static;" >
-                                     
-                        <img src="{{imagen1()}}" width="200px" height="100px"  class="rounded float-start" alt="..." style="margin-left: 20%;">
+                    <div class="form-wrap">
+                        <textarea class="form-control" placeholder="Descripción ... " name="descripcion" [(ngModel)]="tickets.descripcion" formControlName="descripcion" style="height: 100px" maxlength="300"></textarea>
+                    </div>
+                    <br><br>
+                    <div class="field-wrap">
+                        <input type="file" id="imagen_uploads" name="imagen_uploads" accept=".jpg, .jpag, .png" [(ngModel)]="tickets.imagenes" (change)="onSelectNewFile($event)" multiple />
+                    </div>
+
+
+                    <div class="field-wrap" style="position: static;">
+
+                        <img src="{{imagen1()}}" width="200px" height="100px" class="rounded float-start" alt="..." style="margin-left: 20%;">
                         <img src="{{imagen2()}}" width="200px" height="100px" class="rounded float-end" alt="..." style="margin-left: 2%;">
                         <img src="{{imagen3()}}" width="200px" height="100px" class="rounded float-end" alt="..." style="margin-left: 2%;">
-                        </div>
-    
-                        <div class="field-wrap">
-                            <input  name="imagenes"[(ngModel)]="tickets.imagenes" formControlName="imagenes" type="hidden" value="{{imagenesfin()}}"/>
-                        </div>    
+                    </div>
 
                     <div class="field-wrap">
-                        <input name="fecha" [(ngModel)]="tickets.fecha"   formControlName="fecha"  type="text" value="{{mostrar_fecha()}}"/>
+                        <input name="imagenes" [(ngModel)]="tickets.imagenes" formControlName="imagenes" type="hidden" value="{{imagenesfin()}}" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <input name="fecha" [(ngModel)]="tickets.fecha" formControlName="fecha" type="text" value="{{mostrar_fecha()}}" />
                     </div>
 
 
                     <div class="field-wrap">
-                        <select class="selectores"  [(ngModel)]="tickets.tipo_caso" formControlName="tipo_caso" aria-label="Default select example">
+                        <label>Tipo Caso<span class="req">*</span></label>
+                        <select id="tipocaso" class="selectores" [(ngModel)]="tickets.tipo_caso" formControlName="tipo_caso" aria-label="Default select example">
                             <option selected>Tipo de Caso</option>
                             <option value="Soporte">Soporte</option>
                             <option value="Nueva funcionalidad">Nueva funcionalidad</option>
@@ -46,7 +47,7 @@
                         </select>
                     </div>
                     <div class="field-wrap">
-                        <select class="selectores" aria-label="Default select example" >
+                        <select class="selectores" aria-label="Default select example">
                             <option selected>Tipo de Caso</option>
                             <tr *ngFor = "let catalogos of catalogoArray">
                                 <option>{{catalogos.tipo_caso}}</option>
@@ -62,21 +63,21 @@
                             <option value="Media">Media</option>
                         </select>
                     </div>
-                    
-                   
+
+
                     <div class="field-wrap">
                         <label>USUARIO NOMBRE<span class="req">*</span></label>
-                        <input  name="password" [(ngModel)]="tickets.usuario_email" formControlName="usuario_email" type="text" required autocomplete="off" minlength="8" maxlength="35" />
-                    </div>
-    
-                    <span class="response" ></span>
-
-                    <div class="c-btn">
-                        <button type="submit"  class="button button-block">Publicar</button>
+                        <input name="password" [(ngModel)]="tickets.usuario_email" formControlName="usuario_email" type="text" required autocomplete="off" minlength="8" maxlength="35" />
                     </div>
 
+                    <span class="response"></span>
+
                     <div class="c-btn">
-                        <button  class="btn-back">Regresar</button>
+                        <button type="submit" class="button button-block">Publicar</button>
+                    </div>
+
+                    <div class="c-btn">
+                        <button class="btn-back">Regresar</button>
                     </div>
 
                 </form>

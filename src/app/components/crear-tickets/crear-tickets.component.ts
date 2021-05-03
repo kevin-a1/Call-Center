@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { CatalogosservicesService } from '../../services/catalogosservices.service';
 import { Catalogos } from '../../models/catalogos';
 import { DomSanitizer } from "@angular/platform-browser";
+import { CargarScriptsService } from '../../services/cargar-scripts.service';
 
 @Component({
   selector: 'app-crear-tickets',
@@ -19,7 +20,9 @@ export class CrearTicketsComponent implements OnInit {
   tickets:Ticket= new Ticket();
   response: boolean = false;
   catalogoArray:Catalogos[] = [];
-  constructor(private sant:DomSanitizer,private ticketService:TicketService, private router:Router, private catalogoservice:CatalogosservicesService) { }
+  constructor(private sant:DomSanitizer,private ticketService:TicketService, private router:Router, private catalogoservice:CatalogosservicesService, private cargarScriptsService: CargarScriptsService) {
+    cargarScriptsService.load_js("registro-usuario.component.js");
+  }
 
   ngOnInit(): void {
     this.catalogoservice.getCatalogos()

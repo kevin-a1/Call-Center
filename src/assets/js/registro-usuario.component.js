@@ -39,3 +39,4 @@ $('#rol').focus();
 $('#estado').focus();
 $('#usuario').focus();
 $('#email').focus();
+$('#tipocaso').focus();

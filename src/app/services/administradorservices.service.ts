@@ -15,7 +15,7 @@ export class AdministradorservicesService {
   
   getValidarCorreo(data:string):Observable<any>{
     console.log(this.http.get(`${this.BASE_URL}/login/path?data=`+data)+"verificacion en la consoal2")
-    return this.http.get(`${this.BASE_URL}/login/path?data=`+data)
+    return this.http.get(`${this.BASE_URL}/login/${data}`)
   }
 
   crearAdmin(administrador:Administrador, action:string):Observable<any>{

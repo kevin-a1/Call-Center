@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'casos', component: RevisarCasoComponent},
   { path: 'crear-tickets', component: CrearTicketsComponent},
   { path: 'administradores', component: AdministradoresComponent},
-  { path: 'añadir dato', component: AgregarParametrosComponent },
+  { path: 'parametros', component: AgregarParametrosComponent },
   { path: 'usuarios', component: UsuariosComponent},
   { path: 'casos-abiertos', component: CasosAbiertosComponent},
 ];
