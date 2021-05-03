@@ -15,7 +15,7 @@ img {
 
 .title {
     display: inline-block;
-    color: aquamarine;
+    color: #FFF;
     vertical-align: middle;
     padding: 0px 5px;
     font: bold 40px/1 arial;
@@ -35,5 +35,5 @@ img {
 }
 
 img:hover {
-    background-color: aquamarine;
+    background-color: #FFF;
 }

@@ -98,9 +98,29 @@ a {
     border-radius: 50%;
 }
 
-.social-icons li a:hover {
+.social-icons li .facebook:hover {
     background: #FFF;
-    color: #000;
+    color: #3b5998;
+}
+
+.social-icons li .twitter:hover {
+    background: #FFF;
+    color: #00acee;
+}
+
+.social-icons li .instagram:hover {
+    background: #FFF;
+    color: #3f729b;
+}
+
+.social-icons li .linkedin:hover {
+    background: #FFF;
+    color: #0e76a8;
+}
+
+.social-icons li .youtube:hover {
+    background: #FFF;
+    color: #c4302b;
 }
 
 .nav-toggle {

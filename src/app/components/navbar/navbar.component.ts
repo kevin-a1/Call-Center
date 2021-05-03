@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  type_user_logged_in: String = localStorage.getItem('type_user_logged_in');
-
+  //type_user_logged_in: String = localStorage.getItem('type_user_logged_in');
+  
   u: string = 'Usuario';
   a: string = 'Administrador';
   sa: string = 'Super Administrador';
+  type_user_logged_in: String = this.a;
 
   constructor(private cargarScriptsService:CargarScriptsService, private router: Router) {
     cargarScriptsService.load_js("navbar.component.js");
@@ -37,6 +38,12 @@ export class NavbarComponent implements OnInit {
   }
 
   //Menú administrador
+
+  goCasosAbietos_A() {
+    if (this.type_user_logged_in == this.a) {
+      this.router.navigate(['/casos-abiertos']);
+    }
+  }
 
   goMisCasos_A() {
     if (this.type_user_logged_in == this.a) {

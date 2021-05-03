@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Ticket } from '../models/ticket';
-import { map } from 'rxjs/operators';
 import { Mensajes } from '../models/mensajes';
 
 @Injectable({
@@ -35,4 +34,11 @@ export class TicketService {
     return this.http.post(`${this.URL}/ticket/crear-ticket`,tickets);
   }
   
+  getAllTickets():Observable<any> {
+    return this.http.get(`${this.URL}/ticket/casos-abiertos`);
+  }
+
+  addResponsable(tichet_id: String, usuario: String): Observable<any> {
+    return this.http.get(`${this.URL}/ticket/asignarme/${tichet_id}/${usuario}`);
+  }
 }

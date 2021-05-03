@@ -19,6 +19,8 @@ import { DetalleCasoComponent } from './components/detalle-caso/detalle-caso.com
 import { CrearTicketsComponent } from './components/crear-tickets/crear-tickets.component';
 import { CatalogosservicesService } from './services/catalogosservices.service';
 import { CasosAbiertosComponent } from './components/casos-abiertos/casos-abiertos.component';
+import { EditUsuarioComponent } from './components/edit-usuario/edit-usuario.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { CasosAbiertosComponent } from './components/casos-abiertos/casos-abiert
     CrearTicketsComponent,
     AdministradoresComponent,
     DetalleCasoComponent,
-    CasosAbiertosComponent
+    CasosAbiertosComponent,
+    EditUsuarioComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,

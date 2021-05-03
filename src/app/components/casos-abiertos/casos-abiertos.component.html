@@ -1,6 +1,6 @@
 <div class="limiter">
 
-    <h2 class="title">Lista Administradores</h2>
+    <h2 class="title">Casos Abiertos</h2>
 
     <div class="container-table100">
 
@@ -34,13 +34,13 @@
                         {{ t.asunto }}
                     </div>
                     <div class="cell" data-title="Tipo Caso">
-                        {{ a.tipo_caso }}
+                        {{ t.tipo_caso }}
                     </div>
                     <div class="cell" data-title="Prioridad">
-                        {{ a.prioridad }}
+                        {{ t.prioridad }}
                     </div>
                     <div class="cell" data-title="Acciones">
-                        <input class="btn-asignarme" type="button" value="Asignarme">
+                        <input (click)="asignarme(t._id, t.ticket_id)" class="btn-asignarme" type="button" value="Asignarme">
                     </div>
                 </div>
             </div>

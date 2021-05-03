@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 
-
 <nav>
     <div class="header"></div>
 
@@ -25,6 +24,11 @@
             </li>
 
             <!-- Menú Administrador -->
+
+            <li *ngIf="type_user_logged_in == a">
+                <a (click)="goCasosAbietos_A()">Casos Abiertos</a>
+            </li>
+
             <li *ngIf="type_user_logged_in == a">
                 <a (click)="goMisCasos_A()">Mis Casos</a>
             </li>
@@ -59,28 +63,28 @@
         <!-- social media -->
         <ul class="social-icons">
             <li>
-                <a href="https://www.twitter.com">
+                <a target="_new" class="facebook" href="https://www.facebook.com/TecAzuay">
                     <i class="fab fa-facebook"></i>
                 </a>
             </li>
             <li>
-                <a href="https://www.twitter.com">
+                <a target="_new" class="twitter" href="https://twitter.com/tecazuay?lang=es">
                     <i class="fab fa-twitter"></i>
                 </a>
             </li>
             <li>
-                <a href="https://www.twitter.com">
-                    <i class="fab fa-behance"></i>
+                <a target="_new" class="instagram" href="https://www.instagram.com/tecdelazuay/?hl=es-la">
+                    <i class="fab fa-instagram"></i>
                 </a>
             </li>
             <li>
-                <a href="https://www.twitter.com">
+                <a target="_new" class="linkedin" href="">
                     <i class="fab fa-linkedin"></i>
                 </a>
             </li>
             <li>
-                <a href="https://www.twitter.com">
-                    <i class="fab fa-sketch"></i>
+                <a target="_new" class="youtube" href="">
+                    <i class="fab fa-youtube"></i>
                 </a>
             </li>
         </ul>
