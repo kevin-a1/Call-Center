@@ -52,7 +52,7 @@
 
                     <div class="field-wrap">
                         <label>Confirmar Contraseña<span class="req">*</span></label>
-                        <input [(ngModel)]="confirmar_pass" name="confirmar_pass" type="password" required autocomplete="new-password" />
+                        <input [(ngModel)]="confirmar_pass" id="confirmar_pass" name="confirmar_pass" type="password" required autocomplete="new-password" />
                     </div>
 
                     <span class="response" *ngIf="response_condicion == true">{{ response_msg }}</span>

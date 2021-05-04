@@ -13,8 +13,8 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { CasosAbiertosComponent } from './components/casos-abiertos/casos-abiertos.component';
 
 const routes: Routes = [
-  { path: 'registro-usuario', component:  RegistroUsuarioComponent },
   { path: '', component: LoginCorreoComponent},
+  { path: 'registro-usuario', component:  RegistroUsuarioComponent },
   { path: 'login-password', component: LoginPasswordComponent },
   { path: 'login-admin', component: LoginAdminComponent},
   { path: 'casos', component: RevisarCasoComponent},

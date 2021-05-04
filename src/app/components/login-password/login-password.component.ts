@@ -43,10 +43,8 @@ export class LoginPasswordComponent implements OnInit {
           localStorage.setItem('logged_in', 'true')
           localStorage.setItem('type_user_logged_in', 'Usuario')
           this.app.showNavbar();
-          console.log('CORREO: '+this.correo);
           console.log('Acceso Permitido');
-
-          
+          this.router.navigate(['/crear-tickets']);
 
         }else{
           this.response_condicion = true;

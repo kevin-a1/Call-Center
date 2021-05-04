@@ -32,19 +32,32 @@ export class LoginAdminComponent implements OnInit {
   
   validarcorreo(value){
     this.correoverificar = this.adminsingGroup.controls['correoadmin'].value
+
     console.log(this.correoverificar)
+
     this.administradorservice.getValidarCorreo(this.correoverificar+"").subscribe(data=>{
       if(data.transaccion == true){
 
         let admin = data.data
-        localStorage.setItem('type_user_logged_in', admin.rol);
-        localStorage.setItem('logged_in', 'true')
+
+        if (admin.rol.toUpperCase() == "Administrador".toUpperCase()) {
+
+          localStorage.setItem('type_user_logged_in', "Administrador");
+          localStorage.setItem('logged_in', 'true')
+          this.router.navigate(['/casos-abiertos']);
+
+        } else if (admin.rol.toUpperCase() == "Super Administrador".toUpperCase()) {
+
+          localStorage.setItem('type_user_logged_in', "Super Administrador");
+          localStorage.setItem('logged_in', 'true')
+          this.router.navigate(['/casos-abiertos']);
+
+        }
+
         this.app.showNavbar();
-        this.router.navigate(['/']);
       }else{
         console.log("El administrador no existe")
       }
     });
   }
-
 }

@@ -40,3 +40,4 @@ $('#estado').focus();
 $('#usuario').focus();
 $('#email').focus();
 $('#tipocaso').focus();
+$('#confirmar_pass').focus();

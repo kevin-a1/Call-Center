@@ -36,6 +36,6 @@ export class RevisarCasoComponent implements OnInit {
   ver( dat: string){
     this.id = dat;
     localStorage.setItem('IDTicket',this.id);
-    this.router.navigate(['/login'])
+    this.router.navigate(['/detalle'])
   }
 }

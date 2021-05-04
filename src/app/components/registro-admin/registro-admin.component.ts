@@ -3,6 +3,8 @@ import { Administrador } from '../../models/administrador';
 import { AdministradorservicesService } from '../../services/administradorservices.service';
 import { CargarScriptsService } from '../../services/cargar-scripts.service';
 import { AdministradoresComponent } from '../administradores/administradores.component';
+import { CatalogosservicesService } from '../../services/catalogosservices.service';
+import { Catalogos } from '../../models/catalogos';
 
 @Component({
   selector: 'app-registro-admin',
@@ -12,23 +14,41 @@ import { AdministradoresComponent } from '../administradores/administradores.com
 export class RegistroAdminComponent implements OnInit {
 
   administrador:Administrador = new Administrador();
-  estados: String[]  = ["Disponible", "Ocupado", "Eliminado"];
-  roles: String[] = ["Administrador", "Super Administrador"];
+  estados: String[]  = [];
+  roles: String[] = []
   confirmar_pass: String;
   response_condicion: boolean = false;
   response_msg: String;
   action: string = 'insert';
 
-  constructor(private administradorServ:AdministradorservicesService, private cargarScriptsService: CargarScriptsService, private administradoresComponent: AdministradoresComponent) {
+  constructor(private administradorServ:AdministradorservicesService, private cargarScriptsService: CargarScriptsService, private administradoresComponent: AdministradoresComponent, private catalogosservicesService:CatalogosservicesService) {
 
     cargarScriptsService.load_js("registro-usuario.component.js");
     
     cargarScriptsService.$emitter_update_admin.subscribe(admin => {
       this.update_admin(admin);
+      this.confirmar_pass = admin.password
+      cargarScriptsService.load_js("registro-usuario.component.js");
     });
   }
 
   ngOnInit(): void {
+    this.readCatalogos();
+  }
+
+  readCatalogos() {
+    this.catalogosservicesService.listar().subscribe(data => {
+      if (data.data != null) {
+
+        let catalogos: Catalogos[]=[];
+        catalogos = data.data;
+
+        for (let c of catalogos) {
+          this.estados = c.estado_administrador;
+          this.roles = c.rol_administrador;
+        }
+      }
+    });
   }
 
   addAdmin(){

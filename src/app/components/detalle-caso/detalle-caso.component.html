@@ -1,9 +1,9 @@
 <main>
     <div class="form">
         <div class="container">
-      
+
             <div class="detalle">
-                <h1>DETALLE CASO</h1>
+                <h2>DETALLE CASO</h2>
                 <span class="response" *ngIf="response_condicion == false">{{response_msg}}</span>
                 <tr *ngFor="let datos of ticket">
                     <p>Ticket Id: <span>{{ datos.ticket_id }}</span></p>
@@ -20,59 +20,67 @@
                     <br/>
                     <p>Estado: <span>{{ datos.estado }}</span></p>
                     <br/>
-                    <p>Evidencia: </p>
+                    <p>Evidencias: </p>
                     <br/>
-                    <div *ngFor="let item of datos.imagenes">
-                        <img class="evimg" src= {{item}}>
+                    <div class="c-evidencias" *ngFor="let item of datos.imagenes">
+                        <img *ngIf="item != null" class="evimg" src={{item}} alt="_blank">
                     </div>
                 </tr>
             </div>
- 
+
             <div class="chat">
-                <h1>MENSAJES DEL CASO</h1>
+
+                <h2>MENSAJES DEL CASO</h2>
+
                 <span class="response" *ngIf="response_condicion == false">{{response_msg}}</span>
-                <table>
+
+                <table class="table-msg">
                     <tbody>
-                        <div class ="message">
+                        <div class="message">
                             <tr *ngFor="let d of mensajes">
                                 <td>
-                                    <label class="emi">{{d.emisor}}</label>
-                                    <p class="mens">{{d.mensaje}}</p> 
-                                    <div *ngIf= "d.imagen != null"><img src= {{d.imagen}}></div>
-                                </td> 
-                            </tr>           
+                                    <p class="emi">{{d.emisor}}</p>
+                                    <p class="mens">{{d.mensaje}}</p>
+                                    <div *ngIf="d.imagen != null">
+                                        <img src={{d.imagen}} alt="_blank">
+                                    </div>
+                                </td>
+                            </tr>
                         </div>
                     </tbody>
                 </table>
                 <br/>
-                
+
                 <label for="Elija la imagen de evidencia"></label>
-                <div class="container2" style="text-align: center;">
+
+                <div class="container2 c-center" style="text-align: center;">
+
                     <form>
-                        <input type="file" (change)="onChange($event)" #photoInput/>
-                        <br>
-                        <img [src]="photoSelected || '../../../assets/img/sinFoto.jpg'" (click)="photoInput.click()" />
+                        <input class="file-img" type="file" (change)="onChange($event)" #photoInput/>
+                        <img [src]="photoSelected || '../../../assets/img/sinFoto.jpeg'" (click)="photoInput.click()" alt="_blank" />
                     </form>
+
                     <button (click)="onClickSubir($event)">Cargar Imagen</button>
+
                     <div *ngIf="showImagen" style="text-align: center;">
-                        <h5>Imagen cargada..</h5>
+                        <h5 style="text-align: center; color: aliceblue;">Imagen cargada..</h5>
                     </div>
-                     <div class="progress form-group" *ngIf="subiendo">
+
+                    <div class="progress form-group" *ngIf="subiendo">
                         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadPercent | async) +'%'" aria-valuemax="100">
                         </div>
                     </div>
                 </div>
 
-                <div>
-                    <label for="imagen">URL IMAGEN</label>
-                    <input id="imagen" name="imagen" value="{{urlImagen}}">
+                <div style="display: flex; align-items: center;">
+                    <label style="color: aquamarine;" for="imagen">URL Imagen</label>
+                    <input class="url-img" id="imagen" name="imagen" value="{{urlImagen}}">
                 </div>
 
-                <input  class="mmss" type="text" [(ngModel)]="mensaje.mensaje" required autocomplete="off"/>
-                <div class ="c-btn">
-                    <button id ="btn2" class ="button button-block" (click)="guardar()" type="submit">
-                        Enviar
-                    </button>
+                <div class="c-msg">
+                    <textarea class="mensaje-txta" name="mensaje" placeholder="Escribe un mensaje ..." [(ngModel)]="mensaje.mensaje" required autocomplete="off"></textarea>
+
+                    <button class="button button-block" (click)="guardar()" type="submit">Enviar</button>
                 </div>
             </div>
         </div>

@@ -23,7 +23,7 @@ export class EditUsuarioComponent implements OnInit {
     cargarScriptsService.load_js("registro-usuario.component.js");
     cargarScriptsService.$emitter_update_user.subscribe(user => {
       this.usuario = user;
-      this.confirmar_pass = "";
+      this.confirmar_pass = user.password;
       cargarScriptsService.load_js("registro-usuario.component.js");
     });
 
@@ -45,6 +45,7 @@ export class EditUsuarioComponent implements OnInit {
           console.log('Usuario modificado')
           console.log(data.data)
           this.usuario = new Usuario();
+          this.confirmar_pass = "";
 
         } else {
           this.response_condicion = true

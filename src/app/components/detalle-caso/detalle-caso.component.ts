@@ -5,7 +5,6 @@ import { CargarScriptsService } from '../../services/cargar-scripts.service';
 import { Router } from '@angular/router';
 import { Mensajes } from '../../models/mensajes';
 import { formatDate } from '@angular/common';
-
 import * as AWS from 'aws-sdk';
 import { Observable } from 'rxjs';
 
