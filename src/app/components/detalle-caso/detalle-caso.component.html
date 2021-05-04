@@ -27,7 +27,7 @@
                     </div>
                 </tr>
             </div>
-
+ 
             <div class="chat">
                 <h1>MENSAJES DEL CASO</h1>
                 <span class="response" *ngIf="response_condicion == false">{{response_msg}}</span>
@@ -45,6 +45,28 @@
                     </tbody>
                 </table>
                 <br/>
+                
+                <label for="Elija la imagen de evidencia"></label>
+                <div class="container2" style="text-align: center;">
+                    <form>
+                        <input type="file" (change)="onChange($event)" #photoInput/>
+                        <br>
+                        <img [src]="photoSelected || '../../../assets/img/sinFoto.jpg'" (click)="photoInput.click()" />
+                    </form>
+                    <button (click)="onClickSubir($event)">Cargar Imagen</button>
+                    <div *ngIf="showImagen" style="text-align: center;">
+                        <h5>Imagen cargada..</h5>
+                    </div>
+                     <div class="progress form-group" *ngIf="subiendo">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadPercent | async) +'%'" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="imagen">URL IMAGEN</label>
+                    <input id="imagen" name="imagen" value="{{urlImagen}}">
+                </div>
 
                 <input  class="mmss" type="text" [(ngModel)]="mensaje.mensaje" required autocomplete="off"/>
                 <div class ="c-btn">
@@ -52,10 +74,6 @@
                         Enviar
                     </button>
                 </div>
-                <div *ngIf= "url != ''"><img [src]="url" height="200"></div>
-                <br>
-                <input type="file" (change)="onselectFile($event)">
-
             </div>
         </div>
     </div>
