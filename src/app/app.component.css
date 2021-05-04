@@ -31,9 +31,5 @@ img {
 }
 
 .title:hover {
-    color: azure;
-}
-
-img:hover {
-    background-color: #FFF;
+    color: aquamarine;
 }

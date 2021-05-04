@@ -17,9 +17,16 @@ export class NavbarComponent implements OnInit {
 
   constructor(private cargarScriptsService:CargarScriptsService, private router: Router) {
     cargarScriptsService.load_js("navbar.component.js");
+    this.cargarScriptsService.$emitter_reset_navbar.subscribe(data => {
+      this.resetTipeUserLoggedIn();
+    });
   }
 
   ngOnInit(): void {
+  }
+
+  resetTipeUserLoggedIn() {
+    this.type_user_logged_in = localStorage.getItem('type_user_logged_in');
   }
 
   //Menú usuario
@@ -54,7 +61,7 @@ export class NavbarComponent implements OnInit {
 
   goCasos_SA() {
     if (this.type_user_logged_in == this.sa) {
-      this.router.navigate([]);
+      this.router.navigate(['/filtro-ticket']);
     }
   }
 

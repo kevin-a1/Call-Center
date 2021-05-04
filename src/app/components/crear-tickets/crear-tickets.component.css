@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    overflow: hidden;
-}
-
 a {
     text-decoration: none;
     color: #1ab188;
@@ -21,7 +17,7 @@ a:hover {
 .form {
     background: rgba(19, 35, 47, 0.9);
     padding: 40px;
-    max-width: 1200px;
+    width: 70%;
     margin: 50px auto;
     border-radius: 4px;
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
@@ -73,15 +69,19 @@ h1 {
     font-weight: 300;
     margin: 0 0 40px;
 }
+
 #preview {
-    border:1px solid #ddd;
-    padding:50px;
-    border-radius:2px;
-    background:#fff;
-    max-width:200px;
-  }
-  
-  #preview img {width:100%;display:block;}
+    border: 1px solid #ddd;
+    padding: 50px;
+    border-radius: 2px;
+    background: #fff;
+    max-width: 200px;
+}
+
+#preview img {
+    width: 100%;
+    display: block;
+}
 
 label {
     position: absolute;
@@ -98,8 +98,6 @@ label .req {
     margin: 2px;
     color: #1ab188;
 }
-
-
 
 label.active {
     transform: translateY(50px);
@@ -136,7 +134,8 @@ textarea:focus {
     border-color: #1ab188;
 }
 
-select, text {
+select,
+text {
     width: 100%;
     height: 40px;
     background: rgba(19, 35, 47, 0.9);
@@ -146,6 +145,9 @@ select, text {
 textarea {
     border: 2px solid #a0b3b0;
     resize: vertical;
+    min-width: 200px;
+    max-height: 300px;
+    height: 250px;
 }
 
 .field-wrap {
@@ -243,4 +245,10 @@ main {
     color: #e74b65;
     padding-bottom: 15px;
     font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .form {
+        width: 97%;
+    }
 }

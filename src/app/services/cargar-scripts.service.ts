@@ -11,6 +11,7 @@ export class CargarScriptsService {
 
   $emitter_update_admin = new EventEmitter();
   $emitter_update_user = new EventEmitter();
+  $emitter_reset_navbar = new EventEmitter();
 
   load_js(file: string) {
     let script = document.createElement('script')
@@ -25,5 +26,9 @@ export class CargarScriptsService {
 
   emmiter_update_User(user: Usuario) {
     this.$emitter_update_user.emit(user);
+  }
+
+  emmiter_reset_Navbar(any: string) {
+    this.$emitter_update_user.emit(any);
   }
 }

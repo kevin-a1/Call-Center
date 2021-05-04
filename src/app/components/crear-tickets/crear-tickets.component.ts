@@ -22,7 +22,11 @@ export class CrearTicketsComponent implements OnInit {
   tickets:Ticket= new Ticket();
   response: boolean = false;
   catalogoArray:Catalogos[] = [];
-  constructor(private sant:DomSanitizer,private ticketService:TicketService, private router:Router, private catalogoservice:CatalogosservicesService, private cargarScriptsService: CargarScriptsService) {
+
+  prioridades: string[] = [];
+  tipos_caso: string[] = [];
+
+  constructor(private sant:DomSanitizer,private ticketService:TicketService, private router:Router, private catalogoservice:CatalogosservicesService, private cargarScriptsService: CargarScriptsService, private catalogosservicesService:CatalogosservicesService) {
     cargarScriptsService.load_js("registro-usuario.component.js");
   }
 
@@ -35,6 +39,23 @@ export class CrearTicketsComponent implements OnInit {
     },
     error=>console.log("error fatal")
     );
+
+    this.readCatalogos();
+  }
+
+  readCatalogos() {
+    this.catalogosservicesService.listar().subscribe(data => {
+      if (data.data != null) {
+
+        let catalogos: Catalogos[]=[];
+        catalogos = data.data;
+
+        for (let c of catalogos) {
+          this.prioridades = c.prioridad_ticket;
+          this.tipos_caso = c.tipo_caso;
+        }
+      }
+    });
   }
 
   onSelectNewFile(event):any{

@@ -45,16 +45,18 @@ export class LoginAdminComponent implements OnInit {
           localStorage.setItem('type_user_logged_in', "Administrador");
           localStorage.setItem('logged_in', 'true')
           this.router.navigate(['/casos-abiertos']);
+          this.cargarScriptsService.emmiter_reset_Navbar('any');
+          this.app.showNavbar();
 
         } else if (admin.rol.toUpperCase() == "Super Administrador".toUpperCase()) {
 
           localStorage.setItem('type_user_logged_in', "Super Administrador");
           localStorage.setItem('logged_in', 'true')
-          this.router.navigate(['/casos-abiertos']);
-
+          this.router.navigate(['/filtro-ticket']);
+          this.cargarScriptsService.emmiter_reset_Navbar('any');
+          this.app.showNavbar();
         }
 
-        this.app.showNavbar();
       }else{
         console.log("El administrador no existe")
       }

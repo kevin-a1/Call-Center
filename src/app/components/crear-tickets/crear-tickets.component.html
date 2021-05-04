@@ -13,7 +13,7 @@
                     </div>
 
                     <div class="form-wrap">
-                        <textarea class="form-control" placeholder="Descripción ... " name="descripcion" [(ngModel)]="tickets.descripcion" formControlName="descripcion" style="height: 100px" maxlength="300"></textarea>
+                        <textarea id="desc" class="form-control" placeholder="Descripción ... " name="descripcion" [(ngModel)]="tickets.descripcion" formControlName="descripcion" style="height: 100px" maxlength="300"></textarea>
                     </div>
                     <br><br>
                     <div class="field-wrap">
@@ -36,26 +36,21 @@
                         <input name="fecha" [(ngModel)]="tickets.fecha" formControlName="fecha" type="text" value="{{mostrar_fecha()}}" />
                     </div>
 
+                    <div class="top-row">
+                        <div class="field-wrap">
+                            <label>Tipo Caso<span class="req">*</span></label>
+                            <select id="" class="selectores" [(ngModel)]="tickets.tipo_caso" formControlName="tipo_caso" aria-label="Default select example">
+                                <option *ngFor="let t of tipos_caso" value={{t}} >{{ t }}</option>
+                            </select>
+                        </div>
 
-                    <div class="field-wrap">
-                        <label>Tipo Caso<span class="req">*</span></label>
-                        <select id="tipocaso" class="selectores" [(ngModel)]="tickets.tipo_caso" formControlName="tipo_caso" aria-label="Default select example">
-                            <option selected>Tipo de Caso</option>
-                            <option value="Soporte">Soporte</option>
-                            <option value="Nueva funcionalidad">Nueva funcionalidad</option>
-                            <option value="Papeleo">Papeleo</option>
-                        </select>
+                        <div class="field-wrap">
+                            <label>Prioridad<span class="req">*</span></label>
+                            <select class="selectores" [(ngModel)]="tickets.prioridad" formControlName="prioridad" aria-label="Default select example">
+                                <option *ngFor="let p of prioridades" value={{p}} >{{ p }}</option>
+                            </select>
+                        </div>
                     </div>
-                   
-                    <div class="field-wrap">
-                        <select class="selectores" [(ngModel)]="tickets.prioridad" formControlName="prioridad" aria-label="Default select example">
-                            <option selected>Prioridad</option>
-                            <option value="Alta">Alta</option>
-                            <option value="Baja">Baja</option>
-                            <option value="Media">Media</option>
-                        </select>
-                    </div>
-
 
                     <div class="field-wrap">
                         <input name="password" [(ngModel)]="tickets.usuario_email" formControlName="usuario_email" type="text" required autocomplete="off" minlength="8" maxlength="35" />
@@ -65,10 +60,6 @@
 
                     <div class="c-btn">
                         <button type="submit" class="button button-block">Publicar</button>
-                    </div>
-
-                    <div class="c-btn">
-                        <button class="btn-back">Regresar</button>
                     </div>
 
                 </form>
