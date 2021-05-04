@@ -13,6 +13,23 @@ export class TicketService {
   private URL = 'http://127.0.0.1:4000';
   constructor(private http:HttpClient) { }
 
+  getcontotal(): Observable<any>{
+    return this.http.get(`${this.URL}/detalle/tickets/`);
+  }
+  
+  getconcorreo(correo: String): Observable<any>{
+    return this.http.get(`${this.URL}/detalle/correo/`+correo);
+  }
+  
+  getconestado(estado: String): Observable<any>{
+    return this.http.get(`${this.URL}/detalle/estado/`+estado);
+  }
+  
+  getcontipo(tipo_caso: String): Observable<any>{
+    return this.http.get(`${this.URL}/detalle/tipocaso/`+tipo_caso);
+  }
+
+
   data( correo: String): Observable<any>{
     return this.http.get(`${this.URL}/detalle/caso/`+ correo);
   }

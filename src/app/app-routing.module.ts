@@ -11,6 +11,7 @@ import { AdministradoresComponent } from './components/administradores/administr
 import { AgregarParametrosComponent } from "./components/agregar-parametros/agregar-parametros.component";
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { CasosAbiertosComponent } from './components/casos-abiertos/casos-abiertos.component';
+import { FiltroTicketComponent } from './components/filtro-ticket/filtro-ticket.component';
 
 const routes: Routes = [
   { path: '', component: LoginCorreoComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'parametros', component: AgregarParametrosComponent },
   { path: 'usuarios', component: UsuariosComponent},
   { path: 'casos-abiertos', component: CasosAbiertosComponent},
+  { path: 'filtro-ticket', component:FiltroTicketComponent}
 ];
 
 @NgModule({

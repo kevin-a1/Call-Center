@@ -46,15 +46,7 @@
                             <option value="Papeleo">Papeleo</option>
                         </select>
                     </div>
-                    <div class="field-wrap">
-                        <select class="selectores" aria-label="Default select example">
-                            <option selected>Tipo de Caso</option>
-                            <tr *ngFor = "let catalogos of catalogoArray">
-                                <option>{{catalogos.tipo_caso}}</option>
-                            </tr>
-                        </select>
-                    </div>
-
+                   
                     <div class="field-wrap">
                         <select class="selectores" [(ngModel)]="tickets.prioridad" formControlName="prioridad" aria-label="Default select example">
                             <option selected>Prioridad</option>

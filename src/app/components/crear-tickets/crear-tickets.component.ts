@@ -7,6 +7,7 @@ import { CatalogosservicesService } from '../../services/catalogosservices.servi
 import { Catalogos } from '../../models/catalogos';
 import { DomSanitizer } from "@angular/platform-browser";
 import { CargarScriptsService } from '../../services/cargar-scripts.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-crear-tickets',
@@ -16,6 +17,7 @@ import { CargarScriptsService } from '../../services/cargar-scripts.service';
 export class CrearTicketsComponent implements OnInit {
   public archivos:any = [];
   public previsualizar:string;
+  today= new Date();
   public listaIMAGENES:any=[];
   tickets:Ticket= new Ticket();
   response: boolean = false;
@@ -119,7 +121,8 @@ export class CrearTicketsComponent implements OnInit {
     var segundo = fecha.getSeconds();
     var milisegu = fecha.getUTCMilliseconds();
     var formato_fecha = años+"-"+mes+"-"+dia+"T05:"+hora+":"+minutos;
-    this.tickets.fecha=formato_fecha
+    var jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-ECU', '+0593');
+    this.tickets.fecha=jstoday
     return formato_fecha;
   }
 
@@ -144,13 +147,15 @@ export class CrearTicketsComponent implements OnInit {
   }
 
 
+
   crearTiktes(value){
     if(this.verificar){
        this.ticketService.crearTicket(value).subscribe(data => {
         if(data.transaccion = true){  
           console.log("ticket creado");
           console.log(data.data);
-          this.router.navigate(['/login-admin'])
+          alert("Ticket Creado exitosamente")
+          this.router.navigate(['/crear-tickets'])
         }          
      });
     }else{

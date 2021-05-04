@@ -21,6 +21,7 @@ import { CatalogosservicesService } from './services/catalogosservices.service';
 import { CasosAbiertosComponent } from './components/casos-abiertos/casos-abiertos.component';
 import { EditUsuarioComponent } from './components/edit-usuario/edit-usuario.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { FiltroTicketComponent } from './components/filtro-ticket/filtro-ticket.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     DetalleCasoComponent,
     CasosAbiertosComponent,
     EditUsuarioComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    FiltroTicketComponent
   ],
   imports: [
     BrowserModule,
