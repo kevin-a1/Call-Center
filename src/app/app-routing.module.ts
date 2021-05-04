@@ -14,7 +14,7 @@ import { CasosAbiertosComponent } from './components/casos-abiertos/casos-abiert
 
 const routes: Routes = [
   { path: 'registro-usuario', component:  RegistroUsuarioComponent },
-  { path: 'login', component: LoginCorreoComponent},
+  { path: '', component: LoginCorreoComponent},
   { path: 'login-password', component: LoginPasswordComponent },
   { path: 'login-admin', component: LoginAdminComponent},
   { path: 'casos', component: RevisarCasoComponent},

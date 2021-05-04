@@ -62,12 +62,16 @@ export class LoginCorreoComponent implements OnInit {
      this.usuarioService.listUser(this.correo).subscribe(
        data =>{
          if (data.data.length == 0) {
+
            localStorage.setItem('correo',this.correo)
            this.router.navigate(['/registro-usuario'])
+
          }else{
+
            localStorage.setItem('correo',JSON.stringify(data.data))
            localStorage.setItem('scorreo', this.correo)
            this.router.navigate(['/login-password'])
+           
          }
        },err =>{console.log(err);
        }
