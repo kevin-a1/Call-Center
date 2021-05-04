@@ -5,6 +5,7 @@ import { CargarScriptsService } from '../../services/cargar-scripts.service';
 import { AdministradoresComponent } from '../administradores/administradores.component';
 import { CatalogosservicesService } from '../../services/catalogosservices.service';
 import { Catalogos } from '../../models/catalogos';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-registro-admin',

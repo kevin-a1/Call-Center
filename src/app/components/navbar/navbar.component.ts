@@ -17,16 +17,13 @@ export class NavbarComponent implements OnInit {
 
   constructor(private cargarScriptsService:CargarScriptsService, private router: Router) {
     cargarScriptsService.load_js("navbar.component.js");
-    this.cargarScriptsService.$emitter_reset_navbar.subscribe(data => {
-      this.resetTipeUserLoggedIn();
+    this.cargarScriptsService.$emitter_reset_navbar.emit(data => {
+      this.ngOnInit();
+      console.log("Reloaded ************************************************")
     });
   }
 
   ngOnInit(): void {
-  }
-
-  resetTipeUserLoggedIn() {
-    this.type_user_logged_in = localStorage.getItem('type_user_logged_in');
   }
 
   //Menú usuario
