@@ -27,6 +27,7 @@ export class CrearTicketsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.tickets.usuario_email =  localStorage.getItem('scorreo');
     this.catalogoservice.getCatalogos()
     .subscribe(data =>{
       console.log(data)
@@ -155,7 +156,11 @@ export class CrearTicketsComponent implements OnInit {
           console.log("ticket creado");
           console.log(data.data);
           alert("Ticket Creado exitosamente")
-          this.router.navigate(['/crear-tickets'])
+          this.tickets.asunto=""
+          this.tickets.descripcion=""
+          this.tickets.imagenes=[]
+          this.tickets.usuario_email="" 
+          this.archivos=[]
         }          
      });
     }else{
